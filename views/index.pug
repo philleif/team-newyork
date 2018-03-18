@@ -1,5 +1,72 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  header
+    section.email
+      .container.grid-md
+        .columns
+          .column.col-6
+            p
+              em Send me a message when there's something I can do!
+          .column.col-4
+            input(type="text", placeholder="email")
+          .column.col-2
+            a.btn Submit
+
+    section.hero
+      .container.grid-md
+        center
+          img.logo(src="/images/team-nyc-logo-transparent.png")
+          h1 YOU CAN DO IT!
+
+    section.letter
+      .container.grid-sm
+        .postcard
+          h6 Dear Mayor DeBlasio,
+          p It is imperative you oppose SR-123, the Kill the Puppies Act of 2018.
+          p The ASPCA sums it up nicely: "Do not hurt the puppies. Puppies are our friends. Because puppy mills focus on profit, dogs are often bred with little regard for genetic quality. Puppy mill puppies are prone to congenital and hereditary conditions including heart disease and blood and respiratory disorders."
+          p I'm grateful for your continued service to NY.
+          h6 Your Constituent,
+          .columns
+            .column.col-8
+              input(type="text", placeholder="Your Name")
+            .column.col-4
+              a.btn Send A Letter
+              small ($2.49 for postage &amp; printing)
+
+    section.details
+      .container.grid-sm
+        center
+          h3 SIGN UP FOR MORE:
+        .columns
+          .column.col-6
+            p Team New York makes it easy to engage in local politics by sending action alerts and organizing toolkits on a community board, borough, and city-wide level.
+          .columns.col-6
+            ul
+              li Action Alerts
+              li One-click letters to your city reps
+              li Nonprofit volunteer opportunities
+
+    section.about
+      .container.grid-md
+        center
+          h2 About Us
+        .columns
+          .column.col-6
+            p Team New York makes it easy to engage in local politics by sending action alerts and organizing toolkits on a community board, borough, and city-wide level.
+          .columns.col-6
+            p Team New York makes it easy to engage in local politics by sending action alerts and organizing toolkits on a community board, borough, and city-wide level.
+
+    section.support
+      .container.grid.sm
+        center
+          h2 Support Team
+            br
+            | New York
+        .columns
+          .column.col-2.col-ml-auto
+            img(src="/images/tote.png")
+          .column.col-4.col-mr-auto
+            p Team New York makes it easy to engage.
+            h6 $25
+            a.btn Buy Now

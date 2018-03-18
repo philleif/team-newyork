@@ -1,0 +1,67 @@
+$dark-blue: #000033;
+$red: #EF4621;
+
+body {
+  font-family: "Open Sans";
+  padding: 0px;
+  color: #333333;
+}
+
+a {
+  color: $red;
+}
+
+footer {
+  background: #eee;
+  color: #ccc;
+  font-size: 0.8em;
+  padding: 2em;
+  span {
+    margin: 2em;
+  }
+}
+
+section {
+  margin-bottom: 2em;
+  &.email {
+    color: #ffffff;
+    background: $dark-blue;
+    padding-top: 1em;
+    input, a.btn {
+      width: 100%;
+    }
+  }
+  &.about {
+    color: #ffffff;
+    background: $dark-blue;
+  }
+}
+
+img {
+  width: 100%;
+  &.logo {
+    width: 200px;
+  }
+}
+
+.btn {
+  color: white;
+  background: $red;
+  border: 2px solid $red;
+  border-radius: 0;
+  &:hover {
+    color: $red;
+    background: white;
+    border: 2px solid $red;
+  }
+}
+
+.postcard {
+  border: 8px solid $dark-blue;
+  input {
+    width: 100%;
+  }
+  a.btn {
+    width: 100%;
+  }
+}

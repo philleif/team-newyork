@@ -1,8 +1,51 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+  font-family: "Open Sans";
+  padding: 0px;
+  color: #333333; }
 
 a {
-  color: #00B7FF;
-}
+  color: #EF4621; }
+
+footer {
+  background: #eee;
+  color: #ccc;
+  font-size: 0.8em;
+  padding: 2em; }
+  footer span {
+    margin: 2em; }
+
+section {
+  margin-bottom: 2em; }
+  section.email {
+    color: #ffffff;
+    background: #000033;
+    padding-top: 1em; }
+    section.email input, section.email a.btn {
+      width: 100%; }
+  section.about {
+    color: #ffffff;
+    background: #000033; }
+
+img {
+  width: 100%; }
+  img.logo {
+    width: 200px; }
+
+.btn {
+  color: white;
+  background: #EF4621;
+  border: 2px solid #EF4621;
+  border-radius: 0; }
+  .btn:hover {
+    color: #EF4621;
+    background: white;
+    border: 2px solid #EF4621; }
+
+.postcard {
+  border: 8px solid #000033; }
+  .postcard input {
+    width: 100%; }
+  .postcard a.btn {
+    width: 100%; }
+
+/*# sourceMappingURL=style.css.map */

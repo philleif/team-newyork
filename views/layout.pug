@@ -1,7 +1,21 @@
 doctype html
 html
   head
-    title= title
+    title Team New York
+    link(rel='stylesheet', href='/stylesheets/spectre.min.css')
+    link(rel='stylesheet', href='/stylesheets/spectre-icons.min.css')
+    link(rel='stylesheet', href='/stylesheets/spectre-exp.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     block content
+    footer
+      .container.grid-md
+        center
+          p
+            a(href="/") Home
+            span &middot;
+            a(href="/about") About
+            span &middot;
+            a(href="/contact") Contact
+          p
+          em &copy; 2018 Citizen Capital, a 501c(3) Nonprofit
