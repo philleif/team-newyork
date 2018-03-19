@@ -7,6 +7,7 @@ Team New York City
 1. Create a .env file with the following variables:
 
 `LEGISLATIVE_API_KEY` - API key from https://council.nyc.gov/labs/
+
 `DB_URL` - Mongo connection string
 
 ## Import
