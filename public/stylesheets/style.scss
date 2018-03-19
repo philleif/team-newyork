@@ -1,14 +1,73 @@
 $dark-blue: #000033;
-$red: #EF4621;
+$red: #ef4621;
+
+@font-face {
+  font-family: "GT-Walsheim-Pro-Bold";
+  src: url("/fonts/GT-Walsheim-Pro-Bold.ttf");
+}
+
+@font-face {
+  font-family: "GT-Walsheim-Pro-Regular";
+  src: url("/fonts/GT-Walsheim-Pro-Regular.ttf");
+}
+
+@font-face {
+  font-family: "GT-Walsheim-Pro-Regular-Oblique";
+  src: url("/fonts/GT-Walsheim-Pro-Regular-Oblique.ttf");
+}
+
+@font-face {
+  font-family: "GT-America-Expanded-Black";
+  src: url("/fonts/GT-America-Expanded-Black.ttf");
+}
 
 body {
-  font-family: "Open Sans";
+  font-family: "GT-Walsheim-Pro-Regular";
   padding: 0px;
   color: #333333;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  font-family: "GT-America-Expanded-Black";
+  color: $dark-blue;
+  text-transform: uppercase;
+  margin-bottom: 1em;
+}
+
+h1 {
+  margin-bottom: 0.4em;
+  line-height: 1em;
+  font-size: 6em;
+}
+
+h6 {
+  font-family: "GT-Walsheim-Pro-Bold";
+}
+
+ul {
+  margin-top: 0;
+  li {
+    margin-top: 0;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+  }
+}
+
 a {
   color: $red;
+  &:hover {
+    color: $red;
+  }
+  &.patreon {
+    color: rgb(249, 104, 84);
+  }
+}
+
+input {
+  padding: 3px;
 }
 
 footer {
@@ -22,18 +81,32 @@ footer {
 }
 
 section {
-  margin-bottom: 2em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  &.hero {
+    h6 {
+      margin-bottom: 2em;
+    }
+  }
   &.email {
     color: #ffffff;
     background: $dark-blue;
-    padding-top: 1em;
-    input, a.btn {
+    padding: 1em;
+    input,
+    a.btn {
       width: 100%;
     }
   }
   &.about {
     color: #ffffff;
     background: $dark-blue;
+    h2 {
+      color: white;
+    }
+  }
+  &.letter {
+    background: url("/images/skyline.jpg");
+    background-size: cover;
   }
 }
 
@@ -57,7 +130,9 @@ img {
 }
 
 .postcard {
-  border: 8px solid $dark-blue;
+  background: white;
+  border: 8px solid $red;
+  padding: 1em;
   input {
     width: 100%;
   }

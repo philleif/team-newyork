@@ -1,10 +1,53 @@
+@font-face {
+  font-family: "GT-Walsheim-Pro-Bold";
+  src: url("/fonts/GT-Walsheim-Pro-Bold.ttf"); }
+@font-face {
+  font-family: "GT-Walsheim-Pro-Regular";
+  src: url("/fonts/GT-Walsheim-Pro-Regular.ttf"); }
+@font-face {
+  font-family: "GT-Walsheim-Pro-Regular-Oblique";
+  src: url("/fonts/GT-Walsheim-Pro-Regular-Oblique.ttf"); }
+@font-face {
+  font-family: "GT-America-Expanded-Black";
+  src: url("/fonts/GT-America-Expanded-Black.ttf"); }
 body {
-  font-family: "Open Sans";
+  font-family: "GT-Walsheim-Pro-Regular";
   padding: 0px;
   color: #333333; }
 
+h1,
+h2,
+h3,
+h4 {
+  font-family: "GT-America-Expanded-Black";
+  color: #000033;
+  text-transform: uppercase;
+  margin-bottom: 1em; }
+
+h1 {
+  margin-bottom: 0.4em;
+  line-height: 1em;
+  font-size: 6em; }
+
+h6 {
+  font-family: "GT-Walsheim-Pro-Bold"; }
+
+ul {
+  margin-top: 0; }
+  ul li {
+    margin-top: 0;
+    font-weight: bold;
+    margin-bottom: 0.5em; }
+
 a {
-  color: #EF4621; }
+  color: #ef4621; }
+  a:hover {
+    color: #ef4621; }
+  a.patreon {
+    color: #f96854; }
+
+input {
+  padding: 3px; }
 
 footer {
   background: #eee;
@@ -15,16 +58,25 @@ footer {
     margin: 2em; }
 
 section {
-  margin-bottom: 2em; }
+  padding-top: 2em;
+  padding-bottom: 2em; }
+  section.hero h6 {
+    margin-bottom: 2em; }
   section.email {
     color: #ffffff;
     background: #000033;
-    padding-top: 1em; }
-    section.email input, section.email a.btn {
+    padding: 1em; }
+    section.email input,
+    section.email a.btn {
       width: 100%; }
   section.about {
     color: #ffffff;
     background: #000033; }
+    section.about h2 {
+      color: white; }
+  section.letter {
+    background: url("/images/skyline.jpg");
+    background-size: cover; }
 
 img {
   width: 100%; }
@@ -33,16 +85,18 @@ img {
 
 .btn {
   color: white;
-  background: #EF4621;
-  border: 2px solid #EF4621;
+  background: #ef4621;
+  border: 2px solid #ef4621;
   border-radius: 0; }
   .btn:hover {
-    color: #EF4621;
+    color: #ef4621;
     background: white;
-    border: 2px solid #EF4621; }
+    border: 2px solid #ef4621; }
 
 .postcard {
-  border: 8px solid #000033; }
+  background: white;
+  border: 8px solid #ef4621;
+  padding: 1em; }
   .postcard input {
     width: 100%; }
   .postcard a.btn {

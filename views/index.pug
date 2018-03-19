@@ -4,20 +4,34 @@ block content
   header
     section.email
       .container.grid-md
-        .columns
-          .column.col-6
-            p
-              em Send me a message when there's something I can do!
-          .column.col-4
-            input(type="text", placeholder="email")
-          .column.col-2
-            a.btn Submit
+        center
+          h6 Send me a message when there's something I can do!
+          h6
+            a(href="https://tinyletter.com/teamnewyork") Subscribe on Tiny Letter
+
 
     section.hero
-      .container.grid-md
+      .container.grid-sm
         center
           img.logo(src="/images/team-nyc-logo-transparent.png")
-          h1 YOU CAN DO IT!
+          h1 YOU CAN
+            br
+            | DO IT!
+
+        center
+          h6
+            a(href="https://tinyletter.com/teamnewyork") Join Now
+            | &nbsp; or &nbsp;
+            a.patreon(href="https://tinyletter.com/teamnewyork") Support Us on Patreon
+
+        .columns
+          .column.col-6
+            p Team New York makes it easy to engage in local politics by sending action alerts and organizing toolkits on a community board, borough, and city-wide level.
+          .columns.col-6
+            ul
+              li Action Alerts
+              li One-click letters to your city reps
+              li Nonprofit news
 
     section.letter
       .container.grid-sm
@@ -31,21 +45,10 @@ block content
             .column.col-8
               input(type="text", placeholder="Your Name")
             .column.col-4
-              a.btn Send A Letter
-              small ($2.49 for postage &amp; printing)
-
-    section.details
-      .container.grid-sm
-        center
-          h3 SIGN UP FOR MORE:
-        .columns
-          .column.col-6
-            p Team New York makes it easy to engage in local politics by sending action alerts and organizing toolkits on a community board, borough, and city-wide level.
-          .columns.col-6
-            ul
-              li Action Alerts
-              li One-click letters to your city reps
-              li Nonprofit volunteer opportunities
+              center
+                a.btn Send A Letter
+                em
+                  small ($2.49 for postage &amp; printing)
 
     section.about
       .container.grid-md
