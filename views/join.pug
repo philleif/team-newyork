@@ -1,0 +1,48 @@
+extends layout
+
+block content
+  script(src='https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.js')
+  link(type='text/css', rel='stylesheet', href='https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.css')
+
+  header
+    section.join
+      .container.grid-md
+        center
+          h2 Join The Team
+          h6 $5/Month Donation
+          hr
+        .columns
+          .column.col-4.col-ml-auto
+            .form-group
+              label.form-label(for='input-example-1') Email
+              input#input-example-1.form-input(type='text', name="email", placeholder='Email')
+              label.form-label(for='input-example-1') Password
+              input#input-example-1.form-input(type='password', name="password", placeholder='')
+              p
+              select.form-select
+                option Neighborhood
+                option Slack
+                option Skype
+                option Hipchat
+              p
+              center
+                button.btn(type="submit") Sign Up
+          .column.col-1
+            p &nbsp;
+          .column.col-4.col-mr-auto
+            h5 You matter!
+            p Team New York makes it easy to engage in local politics:
+            ul
+              li Personalized action alerts
+              li One-click letters to your city reps
+              li Organizing toolkits
+
+    section.about
+      .container.grid-md
+        center
+          h2 Why Join?
+        .columns
+          .column.col-6
+            p Team New York makes it easy to engage in local politics by sending action alerts and organizing toolkits on a community board, borough, and city-wide level.
+          .column.col-6
+            p Team New York makes it easy to engage in local politics by sending action alerts and organizing toolkits on a community board, borough, and city-wide level.

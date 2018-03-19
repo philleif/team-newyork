@@ -30,7 +30,8 @@ body {
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5 {
   font-family: "GT-America-Expanded-Black";
   color: $dark-blue;
   text-transform: uppercase;
@@ -43,12 +44,12 @@ h1 {
   font-size: 6em;
 }
 
-h6 {
+h5, h6 {
   font-family: "GT-Walsheim-Pro-Bold";
 }
 
 ul {
-  margin-top: 0;
+  margin: 0;
   li {
     margin-top: 0;
     font-weight: bold;
@@ -66,8 +67,21 @@ a {
   }
 }
 
+p {
+  text-align: justify;
+}
+
+hr {
+  border: 1px solid #eee;
+  margin: 2em;
+}
+
 input {
   padding: 3px;
+}
+
+label {
+  font-weight: bold;
 }
 
 footer {
@@ -86,6 +100,11 @@ section {
   &.hero {
     h6 {
       margin-bottom: 2em;
+    }
+    .intro {
+      h6 {
+        margin-top: 4em;
+      }
     }
   }
   &.email {
@@ -107,6 +126,29 @@ section {
   &.letter {
     background: url("/images/skyline.jpg");
     background-size: cover;
+    h2 {
+      color: $red;
+    }
+  }
+  &.join {
+    margin-bottom: 2em;
+    .btn {
+      width: 100%;
+    }
+  }
+  &.support {
+    .btn {
+      margin-top: 1em;
+    }
+    h5 {
+      color: $red;
+    }
+    h5 {
+      margin-bottom: 0;
+    }
+    p {
+      margin-top: 1em;
+    }
   }
 }
 
