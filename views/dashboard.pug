@@ -5,7 +5,24 @@ block content
     section
       .container.grid-md
         center
-          h2 Your Reps
+          h2 Your City Council Rep:
+        .columns
+          .column.col-6.col-ml-auto
+            img(src=rep.banner)
+          .column.col-4.col-mr-auto
+            h5= rep.name
+            h6= user.neighborhood
+            h6= district.name
+            p
+              br
+              a(href="mailto:" + rep.email)
+                = rep.email
+              br
+              a(href="tel:" + rep.phone)
+                = rep.phone
+              br
+              a(href="https://twitter.com/" + rep.twitter)
+                = "@" + rep.twitter
 
     section
       .container.grid-md

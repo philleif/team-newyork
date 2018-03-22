@@ -2,6 +2,7 @@
 
 require("dotenv").config()
 
+const db = require("../lib/db")
 const passport = require("passport")
 const express = require("express")
 const router = express.Router()
@@ -17,9 +18,21 @@ router.get("/", function(req, res, next) {
 })
 
 /* User Homepage. */
-router.get("/dashboard", isLoggedIn, function(req, res) {
+router.get("/dashboard", isLoggedIn, async (req, res) => {
+  let districts = await db.District.find({
+    $text: { $search: req.user.neighborhood }
+  })
+
+  let rep = await db.Member.findOne({
+    district: districts[0].number
+  })
+
+  console.log(rep)
+
   res.render("dashboard", {
-    user: req.user
+    user: req.user,
+    rep: rep,
+    district: districts[0]
   })
 })
 
