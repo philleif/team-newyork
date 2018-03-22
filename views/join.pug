@@ -1,32 +1,34 @@
 extends layout
 
 block content
-  script(src='https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.js')
-  link(type='text/css', rel='stylesheet', href='https://cdn.firebase.com/libs/firebaseui/2.6.3/firebaseui.css')
-
   header
     section.join
       .container.grid-md
+        center
+          if (message.length > 0)
+            p
+              em message
         center
           h2 Join The Team
           h6 $5/Month Donation
           hr
         .columns
           .column.col-4.col-ml-auto
-            .form-group
-              label.form-label(for='input-example-1') Email
-              input#input-example-1.form-input(type='text', name="email", placeholder='Email')
-              label.form-label(for='input-example-1') Password
-              input#input-example-1.form-input(type='password', name="password", placeholder='')
-              p
-              select.form-select
-                option Neighborhood
-                option Slack
-                option Skype
-                option Hipchat
-              p
-              center
-                button.btn(type="submit") Sign Up
+            form(action='/join', method='post')
+              .form-group
+                label.form-label(for='input-example-1') Email
+                input#input-example-1.form-input(type='text', name="email", placeholder='')
+                label.form-label(for='input-example-1') Password
+                input#input-example-1.form-input(type='password', name="password", placeholder='')
+                p
+                select.form-select(name="neighborhood")
+                  option Neighborhood
+                  option Slack
+                  option Skype
+                  option Hipchat
+                p
+                center
+                  button.btn(type="submit") Sign Up
           .column.col-1
             p &nbsp;
           .column.col-4.col-mr-auto
