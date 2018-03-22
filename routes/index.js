@@ -19,7 +19,7 @@ router.get("/", function(req, res, next) {
 /* User Homepage. */
 router.get("/dashboard", isLoggedIn, function(req, res) {
   res.render("dashboard", {
-    user: req.user // get the user out of session and pass to template
+    user: req.user
   })
 })
 

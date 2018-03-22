@@ -2,7 +2,7 @@ extends layout
 
 block content
   header
-    section
+    section.join
       .container.grid-md
         center
           if (message.length > 0)
@@ -11,12 +11,27 @@ block content
         center
           h2 Log In
           hr
-          form(action='/login', method='post')
-            div
-              label Email:
-              input(type='text', name='email')
-            div
-              label Password:
-              input(type='password', name='password')
-            div
-              input(type='submit', value='Log In')
+        .columns
+          .column.col-4.col-ml-auto
+            form(action='/login', method='post')
+              label.form-label(for='input-example-1') Email
+              input#input-example-1.form-input(type='text', name="email", placeholder='')
+              label.form-label(for='input-example-1') Password
+              input#input-example-1.form-input(type='password', name="password", placeholder='')
+              p
+                center
+                  button.btn(type="submit") Log In
+              p
+                a(href="/reset") Forgot Password?
+          .column.col-1
+            p &nbsp;
+          .column.col-4.col-mr-auto
+            h5 You matter!
+            p Team New York makes it easy to engage in local politics:
+            p
+              ul
+                li Personalized action alerts
+                li One-click letters to your city reps
+                li Organizing toolkits
+            h6
+              a(href="/join") Join Now
