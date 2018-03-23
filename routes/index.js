@@ -20,6 +20,8 @@ router.get("/", function(req, res, next) {
 
 /* User Homepage. */
 router.get("/dashboard", isLoggedIn, async (req, res) => {
+  let letter = await db.Letter.findOne({}).sort("-date")
+
   let districts = await db.District.find({
     $text: { $search: req.user.neighborhood }
   })
@@ -31,6 +33,7 @@ router.get("/dashboard", isLoggedIn, async (req, res) => {
   res.render("dashboard", {
     user: req.user,
     rep: rep,
+    letter: letter,
     district: districts[0]
   })
 })
