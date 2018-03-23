@@ -15,15 +15,16 @@ block content
               h6= user.neighborhood
               h6= district.name
               p
-                br
-                a(href="mailto:" + rep.email)
-                  = rep.email
-                br
-                a(href="tel:" + rep.phone)
-                  = rep.phone
-                br
-                a(href="https://twitter.com/" + rep.twitter)
-                  = "@" + rep.twitter
+                small
+                  br
+                  a(href="mailto:" + rep.email)
+                    = rep.email
+                  br
+                  a(href="tel:" + rep.phone)
+                    = rep.phone
+                  br
+                  a(href="https://twitter.com/" + rep.twitter)
+                    = "@" + rep.twitter
             .column.col-1
               p &nbsp;
             .column.col-8

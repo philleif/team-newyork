@@ -41,6 +41,12 @@ ul {
     font-weight: bold;
     margin-bottom: 0.5em; }
 
+nav {
+  background: #000033; }
+  nav a {
+    color: white;
+    margin-right: 2em; }
+
 a {
   color: #ef4621; }
   a:hover {

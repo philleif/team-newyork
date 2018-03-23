@@ -7,6 +7,16 @@ html
     link(rel='stylesheet', href='/stylesheets/spectre-exp.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    if user
+      nav
+        .container.grid-md
+          header.navbar
+            section.navbar-section
+              a(href='/dashboard') Dashboard
+            section.navbar-section
+              a(href='/settings') Settings
+              a(href='/logout') Logout
+
     block content
     footer
       .container.grid-md

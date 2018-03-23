@@ -58,6 +58,14 @@ ul {
   }
 }
 
+nav {
+  background: $dark-blue;
+  a {
+    color: white;
+    margin-right: 2em;
+  }
+}
+
 a {
   color: $red;
   &:hover {
