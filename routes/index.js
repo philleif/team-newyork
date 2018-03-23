@@ -52,8 +52,11 @@ router.get("/dashboard", isLoggedIn, async (req, res) => {
     district: districts[0].number
   })
 
+  let meetings = await db.Meeting.find({})
+
   res.render("dashboard", {
     user: req.user,
+    meetings: meetings,
     rep: rep,
     letter: letter,
     district: districts[0]

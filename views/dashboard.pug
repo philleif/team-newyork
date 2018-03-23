@@ -41,24 +41,39 @@ block content
       else
         center
           h2 Your Rep
-        .columns
-          .column.col-6
-            img.img-responsive(src=rep.banner)
-          .column.col-6
-            h4= rep.name
-            h5= user.neighborhood
-            h5= district.name
-            a(href="mailto:" + rep.email)
-              = rep.email
-            br
-            a(href="tel:" + rep.phone)
-              = rep.phone
-            br
-            a(href="https://twitter.com/" + rep.twitter)
-              = "@" + rep.twitter
+        .postcard
+          .columns
+            .column.col-6
+              img.img-responsive(src=rep.banner)
+            .column.col-6
+              h4= rep.name
+              h5= user.neighborhood
+              h5= district.name
+              a(href="mailto:" + rep.email)
+                = rep.email
+              br
+              a(href="tel:" + rep.phone)
+                = rep.phone
+              br
+              a(href="https://twitter.com/" + rep.twitter)
+                = "@" + rep.twitter
 
   section
     .container.grid-md
       center
         h2 Agenda
-      p news
+      - for (let meeting of meetings)
+        hr
+        .columns
+          .col-3
+            h6= meeting.date
+            p= meeting.address + " @ " + meeting.time
+            p
+              img.img-responsive(src="https://maps.googleapis.com/maps/api/staticmap?center=" + meeting.address + "&zoom=13&size=300x300&maptype=roadmap&markers=color:red%7Clabel:%7C" + meeting.address + "&key=AIzaSyDAU86NGlydy0BQelvDwDSKjGaMz4m-nxc")
+          .col-1
+            p &nbsp;
+          .col-8
+            h5= meeting.name
+            h6 Agenda:
+            p= meeting.notification
+

@@ -14,7 +14,7 @@ body {
   font-family: "GT-Walsheim-Pro-Regular";
   padding: 0px;
   color: #333333;
-  border-top: 8px solid #000033; }
+  border-top: 8px solid #000000; }
 
 h1,
 h2,
@@ -22,7 +22,7 @@ h3,
 h4,
 h5 {
   font-family: "GT-America-Expanded-Black";
-  color: #000033;
+  color: #000000;
   text-transform: uppercase;
   margin-bottom: 1em; }
 
@@ -42,7 +42,7 @@ ul {
     margin-bottom: 0.5em; }
 
 nav {
-  background: #000033; }
+  background: #000000; }
   nav a {
     color: white;
     margin-right: 2em; }
@@ -86,14 +86,14 @@ section {
     margin-top: 4em; }
   section.email {
     color: #ffffff;
-    background: #000033;
+    background: #000000;
     padding: 1em; }
     section.email input,
     section.email a.btn {
       width: 100%; }
   section.about {
     color: #ffffff;
-    background: #000033; }
+    background: #000000; }
     section.about h2 {
       color: white; }
   section.letter {
