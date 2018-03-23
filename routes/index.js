@@ -27,8 +27,6 @@ router.get("/dashboard", isLoggedIn, async (req, res) => {
     district: districts[0].number
   })
 
-  console.log(rep)
-
   res.render("dashboard", {
     user: req.user,
     rep: rep,

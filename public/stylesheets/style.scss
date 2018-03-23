@@ -25,6 +25,7 @@ body {
   font-family: "GT-Walsheim-Pro-Regular";
   padding: 0px;
   color: #333333;
+  border-top: 8px solid $dark-blue;
 }
 
 h1,
@@ -156,6 +157,10 @@ img {
   width: 100%;
   &.logo {
     width: 200px;
+  }
+  &.small {
+    width: 150px;
+    margin-bottom: 2em;
   }
 }
 
