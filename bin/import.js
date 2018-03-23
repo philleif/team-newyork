@@ -10,6 +10,8 @@ const run = async () => {
   let districts = await city.fetchDistricts()
 
   for (let district of districts.districts) {
+    console.log(district)
+
     let member = new db.Member({
       name: district["member-name"],
       phone: district["phone"],
