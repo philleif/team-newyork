@@ -10,7 +10,7 @@ const router = express.Router()
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next()
-  res.redirect("/")
+  res.redirect("/login")
 }
 
 /* GET home page. */
@@ -48,7 +48,11 @@ router.post("/settings", isLoggedIn, async (req, res) => {
   res.redirect("/settings")
 })
 
+router.post("/password", isLoggedIn, async (req, res) => {
+  await userHelper.updatePassword(req.user, req.body)
 
+  res.redirect("/settings")
+})
 
 /* Authentication. */
 router.post(
