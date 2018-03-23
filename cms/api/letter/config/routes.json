@@ -1,0 +1,44 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/letter",
+      "handler": "Letter.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/letter/:_id",
+      "handler": "Letter.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/letter",
+      "handler": "Letter.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/letter/:_id",
+      "handler": "Letter.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/letter/:_id",
+      "handler": "Letter.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "connection": "default",
+  "collectionName": "letters",
+  "info": {
+    "name": "letter",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "content": {
+      "type": "text",
+      "required": true,
+      "multiple": false
+    },
+    "committee": {
+      "type": "string",
+      "required": true,
+      "multiple": false
+    },
+    "date": {
+      "type": "date",
+      "required": true,
+      "multiple": false
+    }
+  }
+}
