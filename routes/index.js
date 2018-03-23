@@ -28,6 +28,9 @@ router.post("/email", isLoggedIn, async (req, res) => {
   let rep = await db.Member.findOne({ _id: req.body.member })
   let user = req.user
 
+  user.letters.push(letter.id)
+  await user.save()
+
   await email.send(user, rep, letter)
 
   res.redirect("/dashboard")
@@ -36,6 +39,10 @@ router.post("/email", isLoggedIn, async (req, res) => {
 /* User Homepage. */
 router.get("/dashboard", isLoggedIn, async (req, res) => {
   let letter = await db.Letter.findOne({}).sort("-date")
+
+  if (req.user.letters.includes(letter.id)) {
+    letter = false
+  }
 
   let districts = await db.District.find({
     $text: { $search: req.user.neighborhood }

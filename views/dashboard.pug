@@ -1,11 +1,10 @@
 extends layout
 
 block content
-  header
+  if (letter)
     section
       .container.grid-md
         center
-          img.small(src="/images/team-nyc-logo-transparent.png")
           h2 Let's Go!
         .postcard
           .columns
@@ -40,8 +39,8 @@ block content
                 input(type="hidden", name="letter", value=letter.id)
                 button.btn(type="submit", value="Send Email") Send Email
 
-    section
-      .container.grid-md
-        center
-          h2 Agenda
-        p news
+  section
+    .container.grid-md
+      center
+        h2 Agenda
+      p news
