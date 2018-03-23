@@ -3,6 +3,7 @@
 require("dotenv").config()
 
 const db = require("../lib/db")
+const userHelper = require("../lib/user")
 const passport = require("passport")
 const express = require("express")
 const router = express.Router()
@@ -33,6 +34,21 @@ router.get("/dashboard", isLoggedIn, async (req, res) => {
     district: districts[0]
   })
 })
+
+/* User settings */
+router.get("/settings", isLoggedIn, (req, res) => {
+  res.render("settings", {
+    user: req.user
+  })
+})
+
+router.post("/settings", isLoggedIn, async (req, res) => {
+  await userHelper.updateSettings(req.user, req.body)
+
+  res.redirect("/settings")
+})
+
+
 
 /* Authentication. */
 router.post(

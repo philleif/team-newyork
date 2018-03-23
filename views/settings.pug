@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  header
+    section.join
+      .container.grid-md
+        center
+          h2 Settings
+          hr
+        .columns
+          .column.col-4.col-mx-auto
+            h6 Profile
+            form(action='/settings', method='post')
+              label.form-label(for='name') Name
+              input#email.form-input(type='text', name="name", value=user.name)
+              label.form-label(for='email') Email
+              input#email.form-input(type='text', name="email", value=user.email)
+              p
+                center
+                  button.btn(type="submit") Update
+            hr
+            h6 Password
+            form(action="/password", method="post")
+              label.form-label(for='current-password') Current Password
+              input#current_password.form-input(type='password', name="current_password", placeholder='')
+              label.form-label(for='new-password') New Password
+              input#new-password.form-input(type='password', name="new_password", placeholder='')
+
+              p
+                center
+                  button.btn(type="submit") Change Password
