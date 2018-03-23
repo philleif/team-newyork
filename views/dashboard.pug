@@ -67,7 +67,11 @@ block content
         .columns
           .col-3
             h6= meeting.date
-            p= meeting.address + " @ " + meeting.time
+            small
+              em
+                p= meeting.address
+                  br
+                  = "@ " + meeting.time
             p
               img.img-responsive(src="https://maps.googleapis.com/maps/api/staticmap?center=" + meeting.address + "&zoom=13&size=300x300&maptype=roadmap&markers=color:red%7Clabel:%7C" + meeting.address + "&key=AIzaSyDAU86NGlydy0BQelvDwDSKjGaMz4m-nxc")
           .col-1
