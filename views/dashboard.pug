@@ -1,9 +1,9 @@
 extends layout
 
 block content
-  if (letter)
-    section
-      .container.grid-md
+  section
+    .container.grid-md
+      if (letter)
         center
           h2 Let's Go!
         .postcard
@@ -38,6 +38,24 @@ block content
                 input(type="hidden", name="member", value=rep.id)
                 input(type="hidden", name="letter", value=letter.id)
                 button.btn(type="submit", value="Send Email") Send Email
+      else
+        center
+          h2 Your Rep
+        .columns
+          .column.col-6
+            img.img-responsive(src=rep.banner)
+          .column.col-6
+            h4= rep.name
+            h5= user.neighborhood
+            h5= district.name
+            a(href="mailto:" + rep.email)
+              = rep.email
+            br
+            a(href="tel:" + rep.phone)
+              = rep.phone
+            br
+            a(href="https://twitter.com/" + rep.twitter)
+              = "@" + rep.twitter
 
   section
     .container.grid-md
