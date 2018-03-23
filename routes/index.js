@@ -4,8 +4,10 @@ require("dotenv").config()
 
 const db = require("../lib/db")
 const userHelper = require("../lib/user")
+const email = require("../lib/email")
 const passport = require("passport")
 const express = require("express")
+
 const router = express.Router()
 
 function isLoggedIn(req, res, next) {
@@ -16,6 +18,19 @@ function isLoggedIn(req, res, next) {
 /* GET home page. */
 router.get("/", function(req, res, next) {
   res.render("index")
+})
+
+/* Send a letter. */
+router.post("/email", isLoggedIn, async (req, res) => {
+  console.log(req.body)
+
+  let letter = await db.Letter.findOne({ _id: req.body.letter })
+  let rep = await db.Member.findOne({ _id: req.body.member })
+  let user = req.user
+
+  await email.send(user, rep, letter)
+
+  res.redirect("/dashboard")
 })
 
 /* User Homepage. */

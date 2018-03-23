@@ -35,7 +35,10 @@ block content
               h6 Your Constituent,
               h6= user.name
               br
-              a.btn Send Email
+              form(action="/email", method="post")
+                input(type="hidden", name="member", value=rep.id)
+                input(type="hidden", name="letter", value=letter.id)
+                button.btn(type="submit", value="Send Email") Send Email
 
     section
       .container.grid-md

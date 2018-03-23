@@ -23,6 +23,11 @@
       "type": "date",
       "required": true,
       "multiple": false
+    },
+    "subject": {
+      "type": "string",
+      "required": true,
+      "multiple": false
     }
   }
 }
