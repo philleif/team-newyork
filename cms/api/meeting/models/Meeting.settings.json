@@ -1,0 +1,41 @@
+{
+  "connection": "default",
+  "collectionName": "meetings",
+  "info": {
+    "name": "meeting",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "multiple": false
+    },
+    "date": {
+      "type": "date",
+      "multiple": false
+    },
+    "committee": {
+      "type": "string",
+      "multiple": false
+    },
+    "agenda": {
+      "type": "text",
+      "multiple": false
+    },
+    "address": {
+      "type": "string",
+      "multiple": false
+    },
+    "notification": {
+      "type": "text",
+      "multiple": false
+    },
+    "time": {
+      "type": "string",
+      "multiple": false
+    }
+  }
+}
