@@ -12,10 +12,12 @@ block content
           .column.col-4.col-ml-auto
             form(action='/join', method='post')
               .form-group
-                label.form-label(for='input-example-1') Email
-                input#input-example-1.form-input(type='text', name="email", placeholder='')
-                label.form-label(for='input-example-1') Password
-                input#input-example-1.form-input(type='password', name="password", placeholder='')
+                label.form-label(for='form-name') Name
+                input#form-name.form-input(type='text', name="name", placeholder='')
+                label.form-label(for='form-email') Email
+                input#form-email.form-input(type='text', name="email", placeholder='')
+                label.form-label(for='form-password') Password
+                input#form-password.form-input(type='password', name="password", placeholder='')
                 p
                 select.form-select(name="neighborhood")
                   option Neighborhood
