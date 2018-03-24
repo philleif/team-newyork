@@ -89,7 +89,7 @@ section {
   padding-top: 2em;
   padding-bottom: 2em; }
   section.hero .columns {
-    margin-top: 2em; }
+    margin-top: 1em; }
   section.hero h6 {
     margin-top: 2em; }
   section.hero .intro a.btn {
@@ -126,7 +126,8 @@ section {
 img {
   width: 100%; }
   img.logo {
-    width: 200px; }
+    width: 200px;
+    margin-bottom: 1em; }
   img.small {
     width: 150px;
     margin-bottom: 2em; }

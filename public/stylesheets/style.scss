@@ -126,7 +126,7 @@ section {
   padding-bottom: 2em;
   &.hero {
     .columns {
-      margin-top: 2em;
+      margin-top: 1em;
     }
     h6 {
       margin-top: 2em;
@@ -186,6 +186,7 @@ img {
   width: 100%;
   &.logo {
     width: 200px;
+    margin-bottom: 1em;
   }
   &.small {
     width: 150px;
