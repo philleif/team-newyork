@@ -2,13 +2,6 @@ extends layout
 
 block content
   header
-    section.email
-      .container.grid-md
-        center
-          h6 Want a message when there's something you can do?
-          h6
-            a(href="https://tinyletter.com/teamnewyork") Subscribe on Tiny Letter
-
     section.hero
       .container.grid-sm
         center
@@ -16,25 +9,22 @@ block content
           h1 YOU CAN
             br
             | DO IT!
-
+      .container.grid-md
         .columns
-          .column.col-6
-            img(src="/images/phone.png")
-          .column.col-6
+          .column.col-5.col-ml-auto
+            img(src="/images/phone.jpg")
+          .column.col-5.col-mr-auto
             .intro
-              p Team New York makes it easy to engage in local politics by sending action alerts and organizing toolkits on a community board, borough, and city-wide level.
+              p Team New York makes it easy to stay active in NYC politics:
               ul
-                li Personalized action alerts
+                li Personalized city briefings
+                li Action alerts
                 li One-click letters to your city reps
-                li Organizing toolkits
-
-              h6
-                a(href="/join") Join Now
-                | &nbsp; or &nbsp;
-                a(href="/login") Log In
+              h6 $5/month Donation
+              a.btn(href="/join") Join Now
 
     section.letter
-      .container.grid-sm
+      .container.grid-md
         center
           h2 Hey Mayor!
         .postcard
@@ -50,7 +40,7 @@ block content
               input(type="text", placeholder="Your Email")
             .column.col-4
               center
-                a.btn Send Letter
+                a.btn Join &amp; Send
 
     section.about
       .container.grid-md

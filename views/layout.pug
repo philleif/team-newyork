@@ -8,18 +8,19 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
   body
-    if user
-      nav
-        .container.grid-md
-          header.navbar
-            section.navbar-section
-              a(href='/')
-                img.nav(src='/images/team-nyc-logo-white.png')
-            section.navbar-section
-              a#dashboard(href='/dashboard') Dashboard
-              a#settings(href='/settings') Settings
+    nav
+      .container.grid-md
+        header.navbar
+          section.navbar-section
+            a(href='/')
+              img.nav(src='/images/team-nyc-logo-white.png')
+          section.navbar-section
+            a#dashboard(href='/dashboard') Dashboard
+            a#settings(href='/settings') Settings
+            if user
               a(href='/logout') Logout
-
+            else
+              a(href='/logout') Log In
     block content
     footer
       .container.grid-md
