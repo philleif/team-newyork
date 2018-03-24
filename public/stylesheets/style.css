@@ -51,8 +51,9 @@ nav {
     margin-right: 2em; }
     nav a:hover {
       text-decoration: none; }
-    nav a.join {
-      color: #ef4621; }
+
+header.hero {
+  background: #F9EA00; }
 
 a {
   color: #ef4621; }
@@ -107,11 +108,8 @@ section {
     background: #000000; }
     section.about h2 {
       color: white; }
-  section.letter {
-    background: url("/images/bg-4.jpg");
-    background-size: cover; }
-    section.letter h2 {
-      color: #ef4621; }
+  section.letter h2 {
+    color: #ef4621; }
   section.join {
     margin-bottom: 2em; }
     section.join .btn {

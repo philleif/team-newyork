@@ -1,6 +1,7 @@
 $primary: #000000;
 $secondary: #000033;
 $red: #ef4621;
+$yellow: #F9EA00;
 
 @font-face {
   font-family: "GT-Walsheim-Pro-Bold";
@@ -71,9 +72,12 @@ nav {
     &:hover {
       text-decoration: none;
     }
-    &.join {
-      color: $red;
-    }
+  }
+}
+
+header {
+  &.hero {
+    background: $yellow;
   }
 }
 
@@ -152,8 +156,6 @@ section {
     }
   }
   &.letter {
-    background: url("/images/bg-4.jpg");
-    background-size: cover;
     h2 {
       color: $red;
     }
