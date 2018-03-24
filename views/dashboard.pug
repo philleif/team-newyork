@@ -36,7 +36,7 @@ block content
             | Let us know what's happening in your community.
             br
             | Selected submissions are sent as notifications to the entire team.
-        form(action="/submit", method="submit")
+        form(action="/submit", method="post")
           textarea#submission-text.form-input(name="submission")
           br
           button.btn(type="submit") Submit

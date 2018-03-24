@@ -34,6 +34,13 @@ router.post("/email", isLoggedIn, async (req, res) => {
   res.redirect("/dashboard")
 })
 
+/* Email submission */
+router.post("/submit", isLoggedIn, async (req, res) => {
+  await email.sendSubmission(req.user, req.body.submission)
+
+  res.redirect("/dashboard")
+})
+
 /* User Homepage. */
 router.get("/dashboard", isLoggedIn, async (req, res) => {
   let letter = await db.Letter.findOne({}).sort("-date")
