@@ -22,8 +22,6 @@ router.get("/", function(req, res, next) {
 
 /* Send a letter. */
 router.post("/email", isLoggedIn, async (req, res) => {
-  console.log(req.body)
-
   let letter = await db.Letter.findOne({ _id: req.body.letter })
   let rep = await db.Member.findOne({ _id: req.body.member })
   let user = req.user
@@ -31,7 +29,7 @@ router.post("/email", isLoggedIn, async (req, res) => {
   user.letters.push(letter.id)
   await user.save()
 
-  await email.send(user, rep, letter)
+  await email.sendLetter(user, rep, letter)
 
   res.redirect("/dashboard")
 })
