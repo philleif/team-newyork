@@ -134,6 +134,13 @@ img {
   img.nav {
     width: 50px; }
 
+.tile {
+  margin-top: 1em;
+  background: #fbfbfb;
+  padding: 1em; }
+  .tile img {
+    max-width: 5em; }
+
 .btn {
   color: white;
   background: #ef4621;

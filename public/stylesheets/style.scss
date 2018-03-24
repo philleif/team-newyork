@@ -197,6 +197,15 @@ img {
   }
 }
 
+.tile {
+  margin-top: 1em;
+  background: #fbfbfb;
+  padding: 1em;
+  img {
+    max-width: 5em;
+  }
+}
+
 .btn {
   color: white;
   background: $red;

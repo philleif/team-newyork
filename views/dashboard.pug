@@ -1,63 +1,87 @@
 extends layout
 
 block content
-  section
-    .container.grid-md
-      if (letter)
+  if (letter)
+    section
+      .container.grid-md
         center
           h2 Let's Go!
         .postcard
           .columns
             .column.col-3
-              img(src=rep.banner)
-              h5= rep.name
+              img(src=member.banner)
+              h5= member.name
               h6= user.neighborhood
               h6= district.name
               p
                 small
                   br
-                  a(href="mailto:" + rep.email)
-                    = rep.email
+                  a(href="mailto:" + member.email)
+                    = member.email
                   br
-                  a(href="tel:" + rep.phone)
-                    = rep.phone
+                  a(href="tel:" + member.phone)
+                    = member.phone
                   br
-                  a(href="https://twitter.com/" + rep.twitter)
-                    = "@" + rep.twitter
+                  a(href="https://twitter.com/" + member.twitter)
+                    = "@" + member.twitter
             .column.col-1
               p &nbsp;
             .column.col-8
               h6 Dear Rep.&nbsp;
-                = rep.name
+                = member.name
                 | ,
               p= letter.content
               h6 Your Constituent,
               h6= user.name
               br
               form(action="/email", method="post")
-                input(type="hidden", name="member", value=rep.id)
+                input(type="hidden", name="member", value=member.id)
                 input(type="hidden", name="letter", value=letter.id)
                 button.btn(type="submit", value="Send Email") Send Email
-      else
-        center
-          h2 Your Rep
-        .postcard
-          .columns
-            .column.col-6
-              img.img-responsive(src=rep.banner)
-            .column.col-6
-              h4= rep.name
-              h5= user.neighborhood
-              h5= district.name
-              a(href="mailto:" + rep.email)
-                = rep.email
-              br
-              a(href="tel:" + rep.phone)
-                = rep.phone
-              br
-              a(href="https://twitter.com/" + rep.twitter)
-                = "@" + rep.twitter
+  section
+    .container.grid-md
+      center
+        h2 Your Reps
+      hr
+      .postcard
+        .columns
+          .column.col-6
+            img.img-responsive(src=member.banner)
+          .column.col-6
+            h4= member.name
+            h5= user.neighborhood
+            h5= district.name
+            a(href="mailto:" + member.email)
+              = member.email
+            br
+            a(href="tel:" + member.phone)
+              = member.phone
+            br
+            a(href="https://twitter.com/" + member.twitter)
+              = "@" + member.twitter
 
+      .columns
+
+        - for(let rep of reps)
+          .column.col-6.col-mx-auto
+            .tile
+              .tile-icon
+                img(src=rep.portrait)
+              .tile-content
+                h6.tile-title= rep.office + ": " + rep.name
+                p.tile-subtitle
+                  if (rep.emails.length > 0)
+                    a(href="mailto:" + rep.emails[0])= rep.emails[0]
+                    br
+                  if (rep.phones.length > 0)
+                    a(href="tel:" + rep.phones[0])= rep.phones[0]
+                    br
+                  - for(let url of rep.urls)
+                    a(href=url)= url
+                    br
+                  - for(let channel of rep.channels)
+                    = channel.type + ": " + channel.id
+                    br
   section
     .container.grid-md
       center
