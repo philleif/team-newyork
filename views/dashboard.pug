@@ -27,10 +27,24 @@ block content
                 input(type="hidden", name="member", value=member.id)
                 input(type="hidden", name="letter", value=letter.id)
                 button.btn(type="submit", value="Send Email") Send Email
+  section.submit
+    .container.grid-sm
+      center
+        h2 What's going on?
+        p
+          center
+            | Let us know what's happening in your community.
+            br
+            | Selected submissions are sent as notifications to the entire team.
+        form(action="/submit", method="submit")
+          textarea#submission-text.form-input(name="submission")
+          br
+          button.btn(type="submit") Submit
+
   section
     .container.grid-md
       center
-        h2 Your Reps
+        h2 Your Team
       .postcard
         .columns
           .column.col-6
@@ -47,9 +61,7 @@ block content
             br
             a(href="https://twitter.com/" + member.twitter)
               = "@" + member.twitter
-
       .columns
-
         - for(let rep of reps)
           .column.col-6.col-mx-auto
             .tile
@@ -58,18 +70,24 @@ block content
               .tile-content
                 h6.tile-title= rep.office + ": " + rep.name
                 p.tile-subtitle
-                  if (rep.emails.length > 0)
-                    a(href="mailto:" + rep.emails[0])= rep.emails[0]
-                    br
-                  if (rep.phones.length > 0)
-                    a(href="tel:" + rep.phones[0])= rep.phones[0]
-                    br
-                  - for(let url of rep.urls)
-                    a(href=url)= url
-                    br
-                  - for(let channel of rep.channels)
-                    = channel.type + ": " + channel.id
-                    br
+                  small
+                    if (rep.emails.length > 0)
+                      a(href="mailto:" + rep.emails[0])= rep.emails[0]
+                      br
+                      br
+                    if (rep.phones.length > 0)
+                      a(href="tel:" + rep.phones[0])= rep.phones[0]
+                      br
+                      br
+                    - for(let channel of rep.channels)
+                      - if(channel.type === "Twitter")
+                        a(href="https://twitter.com/" + channel.id)= "@" + channel.id
+                      - if(channel.type === "Facebook")
+                        a(href="https://facebook.com/" + channel.id)= "facebook.com/" + channel.id
+                      br
+                    - for(let url of rep.urls)
+                      a(href=url)= url
+                      br
   section
     .container.grid-md
       center
@@ -92,7 +110,5 @@ block content
             h5= meeting.name
             h6 Agenda:
             p= meeting.notification
-
-
   script.
     $("#dashboard").addClass("active")

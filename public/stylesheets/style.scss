@@ -1,7 +1,7 @@
 $primary: #000000;
 $secondary: #000033;
 $red: #ef4621;
-$yellow: #F9EA00;
+$yellow: #FDEF43;
 
 @font-face {
   font-family: "GT-Walsheim-Pro-Bold";
@@ -107,6 +107,12 @@ input {
   padding: 3px;
 }
 
+textarea {
+  &.form-input {
+    width: 100%;
+  }
+}
+
 label {
   font-weight: bold;
 }
@@ -180,6 +186,9 @@ section {
       margin-top: 1em;
     }
   }
+  &.submit {
+    background: $yellow;
+  }
 }
 
 img {
@@ -211,6 +220,8 @@ img {
   background: $red;
   border: 2px solid $red;
   border-radius: 0;
+  padding-left: 2em;
+  padding-right: 2em;
   &:hover {
     color: $red;
     background: white;

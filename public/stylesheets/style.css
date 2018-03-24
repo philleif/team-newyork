@@ -53,7 +53,7 @@ nav {
       text-decoration: none; }
 
 header.hero {
-  background: #F9EA00; }
+  background: #FDEF43; }
 
 a {
   color: #ef4621; }
@@ -73,6 +73,9 @@ hr {
 
 input {
   padding: 3px; }
+
+textarea.form-input {
+  width: 100%; }
 
 label {
   font-weight: bold; }
@@ -122,6 +125,8 @@ section {
     margin-bottom: 0; }
   section.support p {
     margin-top: 1em; }
+  section.submit {
+    background: #FDEF43; }
 
 img {
   width: 100%; }
@@ -145,7 +150,9 @@ img {
   color: white;
   background: #ef4621;
   border: 2px solid #ef4621;
-  border-radius: 0; }
+  border-radius: 0;
+  padding-left: 2em;
+  padding-right: 2em; }
   .btn:hover {
     color: #ef4621;
     background: white;
