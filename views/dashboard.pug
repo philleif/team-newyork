@@ -5,7 +5,7 @@ block content
     section
       .container.grid-md
         center
-          h2 Let's Go!
+          h1 Let's Go!
         .postcard
           .columns
             .column.col-3
@@ -13,17 +13,6 @@ block content
               h5= member.name
               h6= user.neighborhood
               h6= district.name
-              p
-                small
-                  br
-                  a(href="mailto:" + member.email)
-                    = member.email
-                  br
-                  a(href="tel:" + member.phone)
-                    = member.phone
-                  br
-                  a(href="https://twitter.com/" + member.twitter)
-                    = "@" + member.twitter
             .column.col-1
               p &nbsp;
             .column.col-8
@@ -42,7 +31,6 @@ block content
     .container.grid-md
       center
         h2 Your Reps
-      hr
       .postcard
         .columns
           .column.col-6
