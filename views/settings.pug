@@ -16,6 +16,7 @@ block content
               label.form-label(for='email') Email
               input#email.form-input(type='text', name="email", value=user.email)
               p
+                br
                 select.form-select(name="neighborhood")
                   option Neighborhood
                   option Allerton
@@ -348,3 +349,6 @@ block content
               p
                 center
                   button.btn(type="submit") Change Password
+
+  script.
+    $("#settings").addClass("active")

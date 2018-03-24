@@ -6,15 +6,18 @@ html
     link(rel='stylesheet', href='/stylesheets/spectre-icons.min.css')
     link(rel='stylesheet', href='/stylesheets/spectre-exp.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
   body
     if user
       nav
         .container.grid-md
           header.navbar
             section.navbar-section
-              a(href='/dashboard') Dashboard
+              a(href='/')
+                img.nav(src='/images/team-nyc-logo-white.png')
             section.navbar-section
-              a(href='/settings') Settings
+              a#dashboard(href='/dashboard') Dashboard
+              a#settings(href='/settings') Settings
               a(href='/logout') Logout
 
     block content

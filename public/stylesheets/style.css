@@ -43,6 +43,9 @@ ul {
 
 nav {
   background: #000000; }
+  nav .navbar-section {
+    padding-top: 1em;
+    padding-bottom: 1em; }
   nav a {
     color: white;
     margin-right: 2em; }
@@ -55,6 +58,8 @@ a {
     color: #ef4621; }
   a.patreon {
     color: #f96854; }
+  a.active {
+    color: #ef4621; }
 
 p {
   text-align: justify; }
@@ -121,6 +126,8 @@ img {
   img.small {
     width: 150px;
     margin-bottom: 2em; }
+  img.nav {
+    width: 50px; }
 
 .btn {
   color: white;
