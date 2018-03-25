@@ -12,13 +12,13 @@ block content
             h6 Profile
             form(action='/settings', method='post')
               label.form-label(for='name') Name
-              input#email.form-input(type='text', name="name", value=user.name)
+              input#email.form-input(type='text', name="name", value=user.name, required)
               label.form-label(for='email') Email
-              input#email.form-input(type='text', name="email", value=user.email)
+              input#email.form-input(type='text', name="email", value=user.email, required)
               p
                 br
-                select.form-select(name="neighborhood")
-                  option Neighborhood
+                select.form-select(name="neighborhood" required)
+                  option(value="") Neighborhood
                   option Allerton
                   option Annadale
                   option Arden Heights
@@ -342,9 +342,9 @@ block content
             h6 Password
             form(action="/password", method="post")
               label.form-label(for='current-password') Current Password
-              input#current_password.form-input(type='password', name="current_password", placeholder='')
+              input#current_password.form-input(type='password', name="current_password", placeholder='', required)
               label.form-label(for='new-password') New Password
-              input#new-password.form-input(type='password', name="new_password", placeholder='')
+              input#new-password.form-input(type='password', name="new_password", placeholder='', required)
 
               p
                 center

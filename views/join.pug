@@ -10,17 +10,17 @@ block content
           hr
         .columns
           .column.col-4.col-ml-auto
-            form(action='/join', method='post')
+            form#join(action='/join', method='post')
               .form-group
                 label.form-label(for='form-name') Name
-                input#form-name.form-input(type='text', name="name", placeholder='')
-                label.form-label(for='form-email') Email
-                input#form-email.form-input(type='text', name="email", placeholder='')
+                input#form-name.form-input(type='text', name="name", placeholder='', required)
+                label.form-label(for='email') Email
+                input#email.form-input(type='text', name="email", placeholder='', required)
                 label.form-label(for='form-password') Password
-                input#form-password.form-input(type='password', name="password", placeholder='')
+                input#form-password.form-input(type='password', name="password", placeholder='', minlength="6", required)
                 p
-                select.form-select(name="neighborhood")
-                  option Neighborhood
+                select.form-select(name="neighborhood", required)
+                  option(value="") Neighborhood
                   option Allerton
                   option Annadale
                   option Arden Heights
@@ -362,3 +362,6 @@ block content
             p Team New York makes it easy to engage in local politics by sending action alerts and organizing toolkits on a community board, borough, and city-wide level.
           .column.col-6
             p Team New York makes it easy to engage in local politics by sending action alerts and organizing toolkits on a community board, borough, and city-wide level.
+
+block javascript
+  script.

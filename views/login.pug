@@ -15,9 +15,9 @@ block content
           .column.col-4.col-ml-auto
             form(action='/login', method='post')
               label.form-label(for='input-example-1') Email
-              input#input-example-1.form-input(type='text', name="email", placeholder='')
+              input#input-example-1.form-input(type='text', name="email", placeholder='', required)
               label.form-label(for='input-example-1') Password
-              input#input-example-1.form-input(type='password', name="password", placeholder='')
+              input#input-example-1.form-input(type='password', name="password", placeholder='', required)
               p
                 center
                   button.btn(type="submit") Log In
