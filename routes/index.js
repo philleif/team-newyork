@@ -3,6 +3,7 @@
 require("dotenv").config()
 
 const db = require("../lib/db")
+const stripe = require("../lib/stripe")
 const userHelper = require("../lib/user")
 const email = require("../lib/email")
 const passport = require("passport")
@@ -90,7 +91,7 @@ router.post("/password", isLoggedIn, async (req, res) => {
 router.post(
   "/join",
   passport.authenticate("local-signup", {
-    successRedirect: "/dashboard",
+    successRedirect: "/donate",
     failureRedirect: "/join",
     failureFlash: true
   })
@@ -116,6 +117,17 @@ router.post(
 router.get("/logout", (req, res) => {
   req.logout()
   res.redirect("/")
+})
+
+/* Payment. */
+router.get("/donate", isLoggedIn, (req, res) => {
+  res.render("donate")
+})
+
+router.post("/donate", isLoggedIn, async (req, res) => {
+  await stripe.createSubscription(req.user, req.body)
+
+  res.redirect("/dashboard")
 })
 
 module.exports = router
