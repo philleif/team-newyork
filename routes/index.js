@@ -130,4 +130,14 @@ router.post("/donate", isLoggedIn, async (req, res) => {
   res.redirect("/dashboard")
 })
 
+/* Static Pages. */
+router.get("/terms", (req, res) => {
+  res.render("terms")
+})
+
+router.get("/privacy", (req, res) => {
+  res.render("privacy")
+})
+
+
 module.exports = router
