@@ -19,9 +19,9 @@ block content
                   // A Stripe Element will be inserted here.
                 // Used to display form errors.
                 #card-errors(role='alert')
-            .columns
-              .column.col-4.col-mr-auto
-                button.btn Submit Payment
+              .columns
+                .column.col-4.col-mr-auto
+                  button.btn Submit Payment
   script.
     console.log("ok")
     var stripe = Stripe('pk_33UaI04sDTDifhenqfHDgqLc6NEtv')
@@ -72,6 +72,19 @@ block content
         }
       })
     })
+
+    function stripeTokenHandler(token) {
+      // Insert the token ID into the form so it gets submitted to the server
+      var form = document.getElementById('payment-form');
+      var hiddenInput = document.createElement('input');
+      hiddenInput.setAttribute('type', 'hidden');
+      hiddenInput.setAttribute('name', 'stripeToken');
+      hiddenInput.setAttribute('value', token.id);
+      form.appendChild(hiddenInput);
+
+      // Submit the form
+      form.submit();
+    }
   style.
     /**
     * The CSS shown here will not be introduced in the Quickstart guide, but shows
