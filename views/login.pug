@@ -5,14 +5,13 @@ block content
     section.join
       .container.grid-md
         center
-          if (message.length > 0)
-            p
-              em message
-        center
           h2 Log In
           hr
         .columns
           .column.col-4.col-ml-auto
+            if message
+              p
+                em.message= message
             form(action='/login', method='post')
               label.form-label(for='input-example-1') Email
               input#input-example-1.form-input(type='text', name="email", placeholder='', required)

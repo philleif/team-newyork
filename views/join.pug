@@ -10,6 +10,9 @@ block content
           hr
         .columns
           .column.col-4.col-ml-auto
+            if message
+              p
+                em.message= message
             form#join(action='/join', method='post')
               .form-group
                 label.form-label(for='form-name') Name
@@ -340,9 +343,11 @@ block content
                 p
                 center
                   button.btn(type="submit") Sign Up
-            br
-            p or&nbsp;
-              a(href="/login") Log In
+            p
+              small
+                em By joining you agree that you are at least 18 years of age and agree to the
+                  a(href="/terms") &nbsp;terms &amp; conditions
+                  | .
           .column.col-1
             p &nbsp;
           .column.col-4.col-mr-auto
@@ -352,6 +357,8 @@ block content
               li Personalized action alerts
               li One-click letters to your city reps
               li Organizing toolkits
+            p or&nbsp;
+              a(href="/login") Log In
 
     section.about
       .container.grid-md

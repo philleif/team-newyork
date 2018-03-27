@@ -167,6 +167,10 @@ img {
   .postcard a.btn {
     width: 100%; }
 
+.message {
+  color: #ef4621;
+  padding-bottom: 2em; }
+
 #card-element {
   margin-top: 1em;
   margin-bottom: 1em; }

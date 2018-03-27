@@ -98,11 +98,13 @@ router.post(
 )
 
 router.get("/join", (req, res) => {
-  res.render("join", { message: req.flash("signupMessage") })
+  let message = req.flash()
+  res.render("join", { message: message.signupMessage })
 })
 
 router.get("/login", (req, res) => {
-  res.render("login", { message: req.flash("loginMessage") })
+  let message = req.flash()
+  res.render("login", { message: message.loginMessage })
 })
 
 router.post(
