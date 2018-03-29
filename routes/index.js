@@ -143,9 +143,12 @@ router.get("/privacy", (req, res) => {
 })
 
 /* Chat bot */
-router.post("/dialog", (req, res) => {
-  console.log(req)
-  res.json({ status: 200 })
+router.post("/dialog", async (req, res) => {
+  let response = await dialog.parseAndReply(req.body)
+
+  console.log(req.body)
+
+  res.json(response)
 })
 
 module.exports = router
