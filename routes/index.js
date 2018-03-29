@@ -6,6 +6,7 @@ const db = require("../lib/db")
 const stripe = require("../lib/stripe")
 const userHelper = require("../lib/user")
 const email = require("../lib/email")
+const dialog = require("../lib/google-dialog")
 const passport = require("passport")
 const express = require("express")
 
@@ -141,5 +142,10 @@ router.get("/privacy", (req, res) => {
   res.render("privacy")
 })
 
+/* Chat bot */
+router.post("/dialog", (req, res) => {
+  console.log(req)
+  res.json({ status: 200 })
+})
 
 module.exports = router

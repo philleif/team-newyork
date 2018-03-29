@@ -9,7 +9,8 @@ block content
           h1 YOU CAN
             br
             | DO IT!
-      .container.grid-md
+
+      .container.grid-md.hide-sm
         .columns
           .column.col-5.col-ml-auto
             img(src="/images/phone.png")
@@ -23,6 +24,25 @@ block content
               h6 $5/month Donation
               a.btn(href="/join") Join Now
 
+      .container.grid-md.show-sm
+        .columns
+          .column.col-8.col-mx-auto
+            img(src="/images/phone.png")
+          .column.col-8.col-mx-auto
+            .intro
+              center
+                br
+                span Team New York makes it easy to stay active in NYC politics:
+                br
+                br
+                ul
+                  li Personalized city briefings
+                  li Action alerts
+                  li One-click letters to your city reps
+                h6 $5/month Donation
+                a.btn(href="/join") Join Now
+
+
     section.letter
       .container.grid-md
         center
@@ -33,12 +53,24 @@ block content
           p The ASPCA sums it up nicely: "Do not hurt the puppies. Puppies are our friends. Because puppy mills focus on profit, dogs are often bred with little regard for genetic quality. Puppy mill puppies are prone to congenital and hereditary conditions including heart disease and blood and respiratory disorders."
           p I'm grateful for your continued service to NY.
           h6 Your Constituent,
-          .columns
+          .columns.hide-sm
             .column.col-4
               input(type="text", placeholder="Your Name")
             .column.col-4
               input(type="text", placeholder="Your Email")
             .column.col-4
+              center
+                a.btn Join &amp; Send
+          .columns.show-sm
+            .column.col-12
+              input(type="text", placeholder="Your Name")
+              br
+              br
+            .column.col-12
+              input(type="text", placeholder="Your Email")
+              br
+              br
+            .column.col-12
               center
                 a.btn Join &amp; Send
 
@@ -47,7 +79,10 @@ block content
         center
           h2 About Us
         .columns
-          .column.col-6.col-mx-auto
+          .column.col-6.col-mx-auto.hide-sm
+            center
+              | Team New York makes it easy to engage in local politics by sending action alerts and organizing toolkits on a community board, borough, and city-wide level.
+          .column.col-8.col-mx-auto.show-sm
             center
               | Team New York makes it easy to engage in local politics by sending action alerts and organizing toolkits on a community board, borough, and city-wide level.
 
@@ -57,7 +92,7 @@ block content
           h2 Support Team
             br
             | New York
-        .columns
+        .columns.hide-sm
           .column.col-3.col-ml-auto
             img(src="/images/tote.png")
           .column.col-4.col-mr-auto
@@ -69,3 +104,18 @@ block content
               li Made in the USA
               li Ships from Brooklyn
             a.btn Buy Now
+        .columns.show-sm
+          .column.col-12
+            center
+              h5 NYC Tote Bag
+              h5 $19
+              a.btn Buy Now
+              br
+              br
+          .column.col-12
+            img(src="/images/tote.png")
+          .column.col-12
+            ul
+              li 100% Cotton Tote
+              li Made in the USA
+              li Ships from Brooklyn

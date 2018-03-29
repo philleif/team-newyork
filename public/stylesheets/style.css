@@ -175,4 +175,14 @@ img {
   margin-top: 1em;
   margin-bottom: 1em; }
 
+@media all and (max-width: 736px) {
+  h1 {
+    font-size: 4em; }
+
+  h5 {
+    font-size: 1.5em; }
+
+  span {
+    font-size: 1.2em; } }
+
 /*# sourceMappingURL=style.css.map */
