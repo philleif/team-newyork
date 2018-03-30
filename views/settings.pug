@@ -9,6 +9,16 @@ block content
           hr
         .columns
           .column.col-4.col-mx-auto
+            h6 Phone
+            if user.phone.verified
+              p= user.phone.number
+              p Your phone number is verified.
+              p
+                a(href="/connect") Change Number
+            else
+              p
+                a(href="/connect") Add a phone number.
+            hr
             h6 Profile
             form(action='/settings', method='post')
               label.form-label(for='name') Name
