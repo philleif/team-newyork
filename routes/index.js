@@ -170,11 +170,12 @@ router.get("/privacy", (req, res) => {
 
 /* Chat bot */
 router.post("/dialog", async (req, res) => {
-  let response = await dialog.parseAndReply(req.body)
-
-  console.log(req.body)
-
-  res.json(response)
+  if (req.user.phone.verified) {
+    let response = await dialog.parseAndReply(req.body)
+  } else {
+    await userHelper.verificationReminder(req.user)
+    let response = { status: 200 }
+  }
 })
 
 module.exports = router
