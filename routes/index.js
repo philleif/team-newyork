@@ -140,8 +140,7 @@ router.get("/connect", isLoggedIn, (req, res) => {
 
 router.post("/connect", isLoggedIn, async (req, res) => {
   await userHelper.savePhone(req.user, req.body.phone)
-
-  console.log(req.body)
+  await userHelper.sendPhoneVerification(req.user)
 
   res.redirect("/verify")
 })
