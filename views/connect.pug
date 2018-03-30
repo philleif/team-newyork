@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  header
+    section.join
+      .container.grid-md
+        center
+          h2 Verify Phone Number
+          hr
+        .columns
+          .column.col-4.col-mx-auto
+            if message
+              p
+                em.message= message
+            form#join(action='/connect', method='post')
+              .form-group
+                p You can chat with Team New York and receive action alerts via text message.
+                input#form-name.form-input(type='text', name="phone", placeholder='555-555-5555', required)
+                br
+                button.btn(type="submit") Verify Number
+                br
+                br
+                p
+                  small
+                    em Don't want to chat?
+                      a(href="/dashboard") &nbsp;Skip this step
+                      | .

@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  header
+    section.join
+      .container.grid-md
+        center
+          h2 Verify Phone Number
+          hr
+        .columns
+          .column.col-4.col-mx-auto
+            if message
+              p
+                em.message= message
+            form#join(action='/verify', method='post')
+              .form-group
+                p We've sent you a text message! Enter the 6-digit code below to finish verification.
+                input#form-name.form-input(type='text', name="name", placeholder='', required)
+                br
+                button.btn(type="submit") Verify Number
+                br
+                br
+                p
+                  small
+                    em Didn't receive anything? Wait one minute and then
+                      a(href="/connect") &nbsp;try again
+                      | .

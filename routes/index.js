@@ -130,7 +130,24 @@ router.get("/donate", isLoggedIn, (req, res) => {
 router.post("/donate", isLoggedIn, async (req, res) => {
   await stripe.createSubscription(req.user, req.body)
 
-  res.redirect("/dashboard")
+  res.redirect("/connect")
+})
+
+/* Phone confirmation */
+router.get("/connect", isLoggedIn, (req, res) => {
+  res.render("connect")
+})
+
+router.post("/connect", isLoggedIn, async (req, res) => {
+  await userHelper.savePhone(req.user, req.body.phone)
+
+  console.log(req.body)
+
+  res.redirect("/verify")
+})
+
+router.get("/verify", isLoggedIn, (req, res) => {
+  res.render("verify")
 })
 
 /* Static Pages. */
