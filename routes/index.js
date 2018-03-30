@@ -149,6 +149,16 @@ router.get("/verify", isLoggedIn, (req, res) => {
   res.render("verify")
 })
 
+router.post("/verify", isLoggedIn, async (req, res) => {
+  let verification = await userHelper.verifyPhone(req.user, req.body.code)
+
+  if (!verification) {
+    res.render("verify", { message: "Invalid code." })
+  } else {
+    res.redirect("/dashboard")
+  }
+})
+
 /* Static Pages. */
 router.get("/terms", (req, res) => {
   res.render("terms")
