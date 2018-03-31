@@ -63,10 +63,10 @@ block content
               = "@" + member.twitter
       .columns
         - for(let rep of reps)
-          .column.col-6.col-mx-auto
+          .column.col-7.col-mx-auto
             .tile
               .tile-icon
-                img(src=rep.portrait)
+                img.img-responsive.shadow(src=rep.portrait)
               .tile-content
                 h6.tile-title= rep.office + ": " + rep.name
                 p.tile-subtitle
