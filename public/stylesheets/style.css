@@ -157,6 +157,18 @@ img {
     color: #ef4621;
     background: white;
     border: 2px solid #ef4621; }
+  .btn.twitter {
+    background: #1dcaff;
+    border: 2px solid #1dcaff; }
+    .btn.twitter:hover {
+      color: #1dcaff;
+      background: white; }
+  .btn.facebook {
+    background: #0084FF;
+    border: 2px solid #0084FF; }
+    .btn.facebook:hover {
+      color: #0084FF;
+      background: white; }
 
 .postcard {
   background: white;

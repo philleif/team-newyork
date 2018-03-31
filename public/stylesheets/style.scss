@@ -227,6 +227,22 @@ img {
     background: white;
     border: 2px solid $red;
   }
+  &.twitter {
+    background: #1dcaff;
+    border: 2px solid #1dcaff;
+    &:hover {
+      color: #1dcaff;
+      background: white;
+    }
+  }
+  &.facebook {
+    background: #0084FF;
+    border: 2px solid #0084FF;
+    &:hover {
+      color: #0084FF;
+      background: white;
+    }
+  }
 }
 
 .postcard {
