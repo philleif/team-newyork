@@ -57,7 +57,7 @@ html
           app_id: "qun7tlvl",
           name: "#{user.name}", // Full name
           email: "#{user.email}", // Email address
-          subscriber: true,
+          subscriber: #{user.subscriber},
           phoneVerified: #{user.phone.verified},
           letterCount: #{user.letters.length}
         };
