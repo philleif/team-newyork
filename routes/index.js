@@ -33,7 +33,7 @@ router.post("/email", isLoggedIn, async (req, res) => {
 
   await email.sendLetter(user, rep, letter)
 
-  res.redirect("/dashboard")
+  res.redirect("/share/" + letter.id)
 })
 
 /* Email submission */
