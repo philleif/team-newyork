@@ -187,12 +187,9 @@ router.get("/privacy", (req, res) => {
 
 /* Chat bot handler */
 router.post("/dialog", async (req, res) => {
-  if (req.user.phone.verified) {
     let response = await dialog.parseAndReply(req.body)
-  } else {
-    await userHelper.verificationReminder(req.user)
-    let response = { status: 200 }
-  }
+
+    res.json(response)
 })
 
 /* Letter landing page */
