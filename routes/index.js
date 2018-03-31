@@ -9,6 +9,7 @@ const email = require("../lib/email")
 const dialog = require("../lib/google-dialog")
 const passport = require("passport")
 const express = require("express")
+const intercom = require("../lib/intercom")
 
 const router = express.Router()
 
@@ -30,6 +31,7 @@ router.post("/email", isLoggedIn, async (req, res) => {
 
   user.letters.push(letter.id)
   await user.save()
+  await intercom.updateLetterCount(user)
 
   await email.sendLetter(user, rep, letter)
 
@@ -214,6 +216,7 @@ router.post("/letter", async (req, res) => {
   user.letters.push(letter.id)
   await user.save()
 
+  await intercom.updateLetterCount(user)
   await email.sendLetter(user, rep, letter)
   await userHelper.refreshTokens(user)
 

@@ -20,6 +20,7 @@
     "express-session": "^1.15.6",
     "firebaseui": "^2.6.3",
     "fs": "0.0.1-security",
+    "intercom-client": "^2.9.1",
     "jsonwebtoken": "^8.2.0",
     "mandrill-api": "^1.0.45",
     "md5": "^2.2.1",
