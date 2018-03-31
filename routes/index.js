@@ -42,7 +42,11 @@ router.post("/email", isLoggedIn, async (req, res) => {
 router.post("/submit", isLoggedIn, async (req, res) => {
   await email.sendSubmission(req.user, req.body.submission)
 
-  res.redirect("/dashboard")
+  res.redirect("/thanks")
+})
+
+router.get("/thanks", isLoggedIn, async (req, res) => {
+  res.render("thanks")
 })
 
 /* User Homepage. */
