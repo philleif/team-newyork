@@ -188,8 +188,6 @@ router.get("/letter/:id/:token", async (req, res) => {
   if (user === null) {
     user = false
   } else {
-    console.log(user)
-
     member = await userHelper.lookupMember(user)
     district = await db.District.findOne({
       $text: { $search: user.neighborhood }
@@ -219,11 +217,13 @@ router.post("/letter", async (req, res) => {
   await email.sendLetter(user, rep, letter)
   await userHelper.refreshTokens(user)
 
-  res.redirect("/share/" + letter.id + "/" + user.tokens.letter)
+  res.redirect("/share/" + letter.id)
 })
 
-router.get("/share/:id/:token", (req, res) => {
-  res.render("share")
+router.get("/share/:id", async (req, res) => {
+  let letter = await db.Letter.findOne({ _id: req.params.id })
+
+  res.render("share", { letter: letter })
 })
 
 module.exports = router

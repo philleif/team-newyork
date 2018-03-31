@@ -1,6 +1,10 @@
+extends layout
+
 block content
   header
     section.join
       .container.grid-md
         center
           h2 You did it!
+          h6
+            em "I just emailed my city rep about the #{letter.subject}, and you should too! #{letter.shareText}"

@@ -28,6 +28,10 @@
       "type": "string",
       "required": true,
       "multiple": false
+    },
+    "shareText": {
+      "type": "string",
+      "multiple": false
     }
   }
 }
