@@ -49,6 +49,17 @@ router.get("/thanks", isLoggedIn, async (req, res) => {
   res.render("thanks")
 })
 
+/* Email the mayor */
+router.post("/mayor", async (req, res) => {
+  await intercom.createLead(req.body.name, req.body.email)
+
+  res.redirect("/mayor")
+})
+
+router.get("/mayor", async (req, res) => {
+  res.render("mayor")
+})
+
 /* User Homepage. */
 router.get("/dashboard", isLoggedIn, async (req, res) => {
   let letter = await db.Letter.findOne({}).sort("-date")

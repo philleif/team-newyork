@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  header.hero
+    section.hero
+      .container.grid-sm
+        center
+          img.logo(src="/images/team-nyc-logo-red.png")
+          h2 You did it!
+
+      .container.grid-md
+        .columns
+          .column.col-4.col-ml-auto
+            img(src="/images/deblasio.jpg")
+          .column.col-6.col-mr-auto
+            h5
+              em "I just emailed the mayor, and you should too."
+            .columns
+              .column.col-6.col-ml-auto
+                a.btn.facebook(href="#") Share on Facebook
+              .column.col-6.col-mr-auto
+                a.btn.twitter(href="#") Share on Twitter
+            center
+              br
+              em or
+              br
+              br
+              a.btn(href="/join") Join Team New York!
