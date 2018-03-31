@@ -22,7 +22,7 @@ router.get("/", function(req, res, next) {
   res.render("index")
 })
 
-/* Send a letter. */
+/* Send a letter via dashboard. */
 router.post("/email", isLoggedIn, async (req, res) => {
   let letter = await db.Letter.findOne({ _id: req.body.letter })
   let rep = await db.Member.findOne({ _id: req.body.member })
@@ -168,7 +168,7 @@ router.get("/privacy", (req, res) => {
   res.render("privacy")
 })
 
-/* Chat bot */
+/* Chat bot handler */
 router.post("/dialog", async (req, res) => {
   if (req.user.phone.verified) {
     let response = await dialog.parseAndReply(req.body)
@@ -176,6 +176,54 @@ router.post("/dialog", async (req, res) => {
     await userHelper.verificationReminder(req.user)
     let response = { status: 200 }
   }
+})
+
+/* Letter landing page */
+router.get("/letter/:id/:token", async (req, res) => {
+  let letter = await db.Letter.findOne({ _id: req.params.id })
+  let user = await db.User.findOne({ "tokens.letter": req.params.token })
+  let member = false
+  let district = false
+
+  if (user === null) {
+    user = false
+  } else {
+    console.log(user)
+
+    member = await userHelper.lookupMember(user)
+    district = await db.District.findOne({
+      $text: { $search: user.neighborhood }
+    })
+
+    if (user.letters.includes(letter.id)) {
+      letter = false
+    }
+  }
+
+  res.render("letter", {
+    member: member,
+    letter: letter,
+    user: user,
+    district: district
+  })
+})
+
+router.post("/letter", async (req, res) => {
+  let letter = await db.Letter.findOne({ _id: req.body.letter })
+  let rep = await db.Member.findOne({ _id: req.body.member })
+  let user = await db.User.findOne({ "tokens.letter": req.body.token })
+
+  user.letters.push(letter.id)
+  await user.save()
+
+  await email.sendLetter(user, rep, letter)
+  await userHelper.refreshTokens(user)
+
+  res.redirect("/share/" + letter.id + "/" + user.tokens.letter)
+})
+
+router.get("/share/:id/:token", (req, res) => {
+  res.render("share")
 })
 
 module.exports = router

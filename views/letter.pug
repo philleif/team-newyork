@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  if (letter && user)
+    section
+      .container.grid-md
+        .postcard
+          .columns
+            .column.col-3
+              img(src=member.banner)
+              h5= member.name
+              h6= user.neighborhood
+              h6= district.name
+            .column.col-1
+              p &nbsp;
+            .column.col-8
+              h6 Dear Rep.&nbsp;
+                = member.name
+                | ,
+              p= letter.content
+              h6 Your Constituent,
+              h6= user.name
+              br
+              form(action="/letter", method="post")
+                input(type="hidden", name="member", value=member.id)
+                input(type="hidden", name="letter", value=letter.id)
+                input(type="hidden", name="token", value=user.tokens.letter)
+                button.btn(type="submit", value="Send Email") Send Email
+  else
+    center
+      h6 You've already sent this letter!
