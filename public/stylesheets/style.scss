@@ -28,6 +28,9 @@ body {
   padding: 0px;
   color: #333333;
   border-top: 8px solid $primary;
+  &.simple {
+    background: $yellow;
+  }
 }
 
 h1,
