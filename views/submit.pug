@@ -1,0 +1,17 @@
+extends simple
+
+block content
+  section.submit
+    .container.grid-sm
+      center
+        h2 What's going on?
+        p
+          center
+            | Let us know what's happening in your community.
+            br
+            | Selected submissions are sent as notifications to the entire team.
+        form(action="/submit/simple", method="post")
+          input(type="hidden", value=user.tokens.letter, name="token")
+          textarea#submission-text.form-input(name="submission")
+          br
+          button.btn(type="submit") Submit

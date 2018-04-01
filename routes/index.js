@@ -45,8 +45,24 @@ router.post("/submit", isLoggedIn, async (req, res) => {
   res.redirect("/thanks")
 })
 
-router.get("/thanks", isLoggedIn, async (req, res) => {
+router.get("/thanks", async (req, res) => {
   res.render("thanks")
+})
+
+router.get("/submit/:token", async (req, res) => {
+  let user = await db.User.findOne({ "tokens.letter": req.params.token })
+
+  res.render("submit", { user: user })
+})
+
+router.post("/submit/simple", async (req, res) => {
+  let user = await db.User.findOne({ "tokens.letter": req.body.token })
+
+  await email.sendSubmission(user, req.body.submission)
+
+  userHelper.refreshTokens(user)
+
+  res.redirect("/thanks")
 })
 
 /* Email the mayor */
@@ -187,9 +203,9 @@ router.get("/privacy", (req, res) => {
 
 /* Chat bot handler */
 router.post("/dialog", async (req, res) => {
-    let response = await dialog.parseAndReply(req.body)
+  let response = await dialog.parseAndReply(req.body)
 
-    res.json(response)
+  res.json(response)
 })
 
 /* Letter landing page */
