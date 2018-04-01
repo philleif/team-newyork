@@ -1,0 +1,21 @@
+{
+  "connection": "default",
+  "collectionName": "representatives",
+  "info": {
+    "name": "representative",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "multiple": false
+    },
+    "office": {
+      "type": "string",
+      "multiple": false
+    }
+  }
+}

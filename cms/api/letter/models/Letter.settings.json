@@ -14,11 +14,6 @@
       "required": true,
       "multiple": false
     },
-    "committee": {
-      "type": "string",
-      "required": true,
-      "multiple": false
-    },
     "date": {
       "type": "date",
       "required": true,
@@ -30,6 +25,10 @@
       "multiple": false
     },
     "shareText": {
+      "type": "string",
+      "multiple": false
+    },
+    "office": {
       "type": "string",
       "multiple": false
     }

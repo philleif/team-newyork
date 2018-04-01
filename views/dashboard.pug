@@ -16,7 +16,7 @@ block content
             .column.col-1
               p &nbsp;
             .column.col-8
-              h6 Dear Rep.&nbsp;
+              h5 Attn. Rep.&nbsp;
                 = member.name
                 | ,
               p= letter.content
@@ -63,7 +63,7 @@ block content
               = "@" + member.twitter
       .columns
         - for(let rep of reps)
-          .column.col-7.col-mx-auto
+          .column.col-6.col-mx-auto
             .tile
               .tile-icon
                 img.img-responsive.shadow(src=rep.portrait)
@@ -74,20 +74,17 @@ block content
                     if (rep.emails.length > 0)
                       a(href="mailto:" + rep.emails[0])= rep.emails[0]
                       br
-                      br
                     if (rep.phones.length > 0)
                       a(href="tel:" + rep.phones[0])= rep.phones[0]
-                      br
                       br
                     - for(let channel of rep.channels)
                       - if(channel.type === "Twitter")
                         a(href="https://twitter.com/" + channel.id)= "@" + channel.id
+                        br
                       - if(channel.type === "Facebook")
                         a(href="https://facebook.com/" + channel.id)= "facebook.com/" + channel.id
-                      br
-                    - for(let url of rep.urls)
-                      a(href=url)= url
-                      br
+                        br
+
   section
     .container.grid-md
       center

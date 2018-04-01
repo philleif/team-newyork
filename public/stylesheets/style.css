@@ -144,7 +144,8 @@ img {
 .tile {
   margin-top: 1em;
   background: #FDEF43;
-  padding: 1em; }
+  padding: 1em;
+  min-height: 165px; }
   .tile img {
     max-width: 5em; }
   .tile .tile-icon {
