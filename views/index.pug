@@ -13,10 +13,10 @@ block content
 
       .container.grid-md
         .columns
-          .column.col-5.col-ml-auto
+          .column.col-md-5.col-sm-10.col-mx-auto
             video.img-responsive(src="/images/phone-animation.mp4", autoplay, poster="/images/phone.png")
               img.shadow(src="/images/phone.png")
-          .column.col-5.col-mr-auto
+          .column.col-md-5.col-sm-10.col-mx-auto
             .intro
               p Team New York makes it easy to stay active in NYC politics:
               ul
@@ -34,9 +34,9 @@ block content
           h2 Hey Mayor!
         .postcard
           .columns
-            .column.col-4
+            .column.col-4.hide-sm
               img.img-responsive(src="/images/deblasio.jpg")
-            .column.col-8
+            .column.col-md-8.col-sm-12
               h6 Dear Mayor DeBlasio,
               p It is imperative you oppose SR-123, the Kill the Puppies Act of 2018.
               p The ASPCA sums it up nicely: "Do not hurt the puppies. Puppies are our friends. Because puppy mills focus on profit, dogs are often bred with little regard for genetic quality. Puppy mill puppies are prone to congenital and hereditary conditions including heart disease and blood and respiratory disorders."
@@ -57,22 +57,22 @@ block content
         center
           h2 About Us
         .columns
-          .column.col-6.col-mx-auto
+          .column.col-8.col-mx-auto
             center
               | Team New York makes it easy to engage in local politics by sending action alerts and organizing toolkits on a community board, borough, and city-wide level.
 
     +events(events)
 
     section.support
-      .container.grid.sm
+      .container.grid-sm
         center
           h2 Support Team
             br
             | New York
-        .columns.hide-sm
-          .column.col-3.col-ml-auto
+        .columns
+          .column.col-4.col-sm-8.col-mx-auto
             img(src="/images/tote.png")
-          .column.col-4.col-mr-auto
+          .column.col-8.col-sm-8.col-mx-auto
             h5 NYC Tote Bag
             h5 $19
             p Team New York makes it easy to engage in local politics by sending action alerts and organizing toolkits on a community board, borough, and city-wide level.
@@ -80,19 +80,5 @@ block content
               li 100% Cotton Tote
               li Made in the USA
               li Ships from Brooklyn
-            a.btn Buy Now
-        .columns.show-sm
-          .column.col-12
             center
-              h5 NYC Tote Bag
-              h5 $19
               a.btn Buy Now
-              br
-              br
-          .column.col-12
-            img.shadow(src="/images/tote.jpg")
-          .column.col-12
-            ul
-              li 100% Cotton Tote
-              li Made in the USA
-              li Ships from Brooklyn

@@ -7,16 +7,14 @@ mixin events(events)
         - for (let e of events)
           hr
           .columns
-            .col-3
+            .column.col-3.col-sm-10.col-mx-auto
               h6= e.date
               small
                 em
                   p= e.location
-              p
+              p.hide-sm
                 img.img-responsive(src="https://maps.googleapis.com/maps/api/staticmap?center=" + e.location + "&zoom=13&size=300x300&maptype=roadmap&markers=color:red%7Clabel:%7C" + e.location + "&key=AIzaSyDAU86NGlydy0BQelvDwDSKjGaMz4m-nxc")
-            .col-1
-              p &nbsp;
-            .col-8
+            .column.col-8.col-sm-10.col-mx-auto
               h5= e.via + ": " + e.name
               p= e.agenda
                 br
