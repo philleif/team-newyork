@@ -20,7 +20,7 @@ function isLoggedIn(req, res, next) {
 
 /* GET home page. */
 router.get("/", function(req, res, next) {
-  res.render("index")
+  res.render("index", { user: req.user })
 })
 
 /* Send a letter via dashboard. */
