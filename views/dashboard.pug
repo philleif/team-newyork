@@ -24,7 +24,7 @@ block content
               h6= user.name
               br
               form(action="/email", method="post")
-                input(type="hidden", name="member", value=user.representatives.councilMember.id)
+                input(type="hidden", name="representative", value=user.representatives.councilMember.id)
                 input(type="hidden", name="letter", value=letter.id)
                 button.btn(type="submit", value="Send Email") Send Email
 

@@ -26,13 +26,13 @@ router.get("/", function(req, res, next) {
 /* Send a letter via dashboard. */
 router.post("/email", isLoggedIn, async (req, res) => {
   let letter = await db.Letter.findOne({ _id: req.body.letter })
-  let rep = await db.Member.findOne({ _id: req.body.member })
+  let rep = await db.Representative.findOne({ _id: req.body.representative })
   let user = req.user
 
   user.letters.push(letter.id)
+
   await user.save()
   await intercom.updateLetterCount(user)
-
   await email.sendLetter(user, rep, letter)
 
   res.redirect("/share/" + letter.id)
@@ -230,12 +230,12 @@ router.get("/letter/:id/:token", async (req, res) => {
 
 router.post("/letter", async (req, res) => {
   let letter = await db.Letter.findOne({ _id: req.body.letter })
-  let rep = await db.Member.findOne({ _id: req.body.member })
+  let rep = await db.Representative.findOne({ _id: req.body.representative })
   let user = await db.User.findOne({ "tokens.letter": req.body.token })
 
   user.letters.push(letter.id)
-  await user.save()
 
+  await user.save()
   await intercom.updateLetterCount(user)
   await email.sendLetter(user, rep, letter)
   await userHelper.refreshTokens(user)

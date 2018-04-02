@@ -28,8 +28,12 @@
       "type": "string",
       "multiple": false
     },
-    "office": {
+    "notificationText": {
       "type": "string",
+      "multiple": false
+    },
+    "expiration": {
+      "type": "date",
       "multiple": false
     }
   }
