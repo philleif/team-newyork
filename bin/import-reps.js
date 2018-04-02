@@ -23,6 +23,7 @@ const run = async () => {
         rep.phones = indices[index].phones
         rep.emails = indices[index].emails
         rep.urls = indices[index].urls
+        rep.global = true
 
         await rep.save()
       }

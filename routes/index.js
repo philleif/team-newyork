@@ -80,25 +80,17 @@ router.get("/mayor", async (req, res) => {
 router.get("/dashboard", isLoggedIn, async (req, res) => {
   let letter = await db.Letter.findOne({}).sort("-date")
   let meetings = await db.Meeting.find({})
-  let reps = await db.Representative.find({})
-  let districts = await db.District.find({
-    $text: { $search: req.user.neighborhood }
-  })
-  let member = await db.Member.findOne({
-    district: districts[0].number
-  })
 
   if (req.user.letters.includes(letter.id)) {
     letter = false
   }
 
+  console.log(req.user)
+
   res.render("dashboard", {
     user: req.user,
     meetings: meetings,
-    member: member,
-    reps: reps,
     letter: letter,
-    district: districts[0]
   })
 })
 

@@ -9,22 +9,22 @@ block content
         .postcard
           .columns
             .column.col-3
-              img(src=member.banner)
-              h5= member.name
+              img(src=user.representatives.councilMember.banner)
+              h5= user.representatives.councilMember.name
               h6= user.neighborhood
-              h6= district.name
+              h6= "District " + user.representatives.councilMember.district
             .column.col-1
               p &nbsp;
             .column.col-8
               h5 Attn. Rep.&nbsp;
-                = member.name
+                = user.representatives.councilMember.name
                 | ,
               p= letter.content
               h6 Your Constituent,
               h6= user.name
               br
               form(action="/email", method="post")
-                input(type="hidden", name="member", value=member.id)
+                input(type="hidden", name="member", value=user.representatives.councilMember.id)
                 input(type="hidden", name="letter", value=letter.id)
                 button.btn(type="submit", value="Send Email") Send Email
   section.submit
@@ -48,21 +48,27 @@ block content
       .postcard
         .columns
           .column.col-6
-            img.img-responsive(src=member.banner)
+            img.img-responsive(src=user.representatives.councilMember.banner)
           .column.col-6
-            h4= member.name
+            h4= user.representatives.councilMember.name
             h5= user.neighborhood
-            h5= district.name
-            a(href="mailto:" + member.email)
-              = member.email
+            h5= "District " + user.representatives.councilMember.district
+            a(href="mailto:" + user.representatives.councilMember.emails[0])
+              = user.representatives.councilMember.emails[0]
             br
-            a(href="tel:" + member.phone)
-              = member.phone
+            a(href="tel:" + user.representatives.councilMember.phones[0])
+              = user.representatives.councilMember.phones[0]
             br
-            a(href="https://twitter.com/" + member.twitter)
-              = "@" + member.twitter
+            - for(let channel of user.representatives.councilMember.channels)
+              - if(channel.type === "Twitter")
+                a(href="https://twitter.com/" + channel.id)= "@" + channel.id
+                br
+              - if(channel.type === "Facebook")
+                a(href="https://facebook.com/" + channel.id)= "facebook.com/" + channel.id
+                br
+
       .columns
-        - for(let rep of reps)
+        - for(let rep of user.representatives.representatives)
           .column.col-6.col-mx-auto
             .tile
               .tile-icon

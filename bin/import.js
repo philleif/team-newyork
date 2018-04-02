@@ -10,7 +10,18 @@ const run = async () => {
   let districts = await city.fetchDistricts()
 
   for (let district of districts.districts) {
-    console.log(district)
+    let representative = new db.Representative({
+      name: district["member-name"],
+      phones: [district["phone"]],
+      district: district["district-number"],
+      emails: [district["email"]],
+      channels: [{ Type: "twitter", id: district["twitter"] }],
+      portrait: district["member-banner"],
+      urls: [district["website"]],
+      office: "City Council"
+    })
+
+    await representative.save()
 
     let member = new db.Member({
       name: district["member-name"],
