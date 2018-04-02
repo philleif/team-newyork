@@ -6,14 +6,12 @@ block content
       .container.grid-md
         .postcard
           .columns
-            .column.col-3
+            .column.col-3.hide-sm
               img(src=user.representatives.councilMember.banner)
               h5= user.representatives.councilMember.name
               h6= user.neighborhood
               h6= "District " + user.representatives.councilMember.district
-            .column.col-1
-              p &nbsp;
-            .column.col-8
+            .column.col-8.col-sm-12
               h6 Dear Rep.&nbsp;
                 = user.representatives.councilMember.name
                 | ,
