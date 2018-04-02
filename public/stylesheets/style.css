@@ -159,7 +159,8 @@ img {
   border: 2px solid #ef4621;
   border-radius: 0;
   padding-left: 2em;
-  padding-right: 2em; }
+  padding-right: 2em;
+  border-radius: 12px; }
   .btn:hover {
     color: #ef4621;
     background: white;
