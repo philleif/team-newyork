@@ -7,22 +7,22 @@ block content
         .postcard
           .columns
             .column.col-3
-              img(src=member.banner)
-              h5= member.name
+              img(src=user.representatives.councilMember.banner)
+              h5= user.representatives.councilMember.name
               h6= user.neighborhood
-              h6= district.name
+              h6= "District " + user.representatives.councilMember.district
             .column.col-1
               p &nbsp;
             .column.col-8
               h6 Dear Rep.&nbsp;
-                = member.name
+                = user.representatives.councilMember.name
                 | ,
               p= letter.content
               h6 Your Constituent,
               h6= user.name
               br
               form(action="/letter", method="post")
-                input(type="hidden", name="member", value=member.id)
+                input(type="hidden", name="representative", value=user.representatives.councilMember.id)
                 input(type="hidden", name="letter", value=letter.id)
                 input(type="hidden", name="token", value=user.tokens.letter)
                 button.btn(type="submit", value="Send Email") Send Email
