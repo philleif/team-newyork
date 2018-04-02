@@ -35,6 +35,10 @@
     "expiration": {
       "type": "date",
       "multiple": false
+    },
+    "office": {
+      "type": "string",
+      "multiple": false
     }
   }
 }
