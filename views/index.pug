@@ -25,23 +25,6 @@ block content
               h6 $5/month Donation
               a.btn(href="/join") Join Now
 
-      .container.grid-md.show-sm
-        .columns
-          .column.col-8.col-mx-auto
-            img(src="/images/phone.png")
-          .column.col-8.col-mx-auto
-            .intro
-              center
-                br
-                span Team New York makes it easy to stay active in NYC politics:
-                br
-                br
-                ul
-                  li Personalized city briefings
-                  li Action alerts
-                  li One-click letters to your city reps
-                h6 $5/month Donation
-                a.btn(href="/join") Join Now
     .container.grid-md
       hr
     section.letter
@@ -68,19 +51,16 @@ block content
                     center
                       button.btn(type="submit") Send
 
-    +events(events)
-
     section.about
       .container.grid-md
         center
           h2 About Us
         .columns
-          .column.col-6.col-mx-auto.hide-sm
+          .column.col-6.col-mx-auto
             center
               | Team New York makes it easy to engage in local politics by sending action alerts and organizing toolkits on a community board, borough, and city-wide level.
-          .column.col-8.col-mx-auto.show-sm
-            center
-              | Team New York makes it easy to engage in local politics by sending action alerts and organizing toolkits on a community board, borough, and city-wide level.
+
+    +events(events)
 
     section.support
       .container.grid.sm

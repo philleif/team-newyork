@@ -133,6 +133,9 @@ footer {
 section {
   padding-top: 2em;
   padding-bottom: 2em;
+  &.agenda {
+    background: white;
+  }
   &.hero {
     .columns {
       margin-top: 1em;

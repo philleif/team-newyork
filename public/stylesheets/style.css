@@ -93,6 +93,8 @@ footer {
 section {
   padding-top: 2em;
   padding-bottom: 2em; }
+  section.agenda {
+    background: white; }
   section.hero .columns {
     margin-top: 1em; }
   section.hero h6 {
