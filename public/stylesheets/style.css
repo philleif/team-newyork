@@ -99,6 +99,10 @@ section {
     margin-top: 1em; }
   section.hero h6 {
     margin-top: 2em; }
+  section.hero .intro p {
+    font-size: 2em;
+    line-height: 1.2em;
+    text-align: left; }
   section.hero .intro a.btn {
     margin-top: 1em;
     padding-left: 2em;
@@ -186,6 +190,8 @@ img {
   background: white;
   border: 8px solid #ef4621;
   padding: 1em;
+  margin-top: 4em;
+  margin-bottom: 2em;
   filter: drop-shadow(0 0 10px #666); }
   .postcard input {
     width: 100%; }

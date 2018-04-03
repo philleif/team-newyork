@@ -144,6 +144,11 @@ section {
       margin-top: 2em;
     }
     .intro {
+      p {
+        font-size: 2em;
+        line-height: 1.2em;
+        text-align: left;
+      }
       a.btn {
         margin-top: 1em;
         padding-left: 2em;
@@ -265,6 +270,8 @@ img {
   background: white;
   border: 8px solid $red;
   padding: 1em;
+  margin-top: 4em;
+  margin-bottom: 2em;
   filter: drop-shadow(0 0 10px #666);
   input {
     width: 100%;
