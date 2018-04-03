@@ -4,6 +4,13 @@ mixin postcard(letter, representative, anon)
     .columns
       .column.col-3.hide-sm
         img(src=representative.portrait)
+        strong
+          p= representative.name
+            br
+            small= representative.office
+            br
+            small
+              a(href="mailto:" + representative.emails[0])= representative.emails[0]
       .column.col-8.col-sm-12.col-mx-auto
         h5 Attn.&nbsp;
           = representative.name
