@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  section.agenda
+    .container.grid-md
+      center
+        h5= e.via
+        h2= e.name
+        .columns
+          .column.col-3.col-sm-8.col-ml-auto
+            a.btn.facebook(href="#") Share on Facebook
+          .column.col-3.col-sm-8.col-mr-auto
+            a.btn.twitter(href="#") Share on Twitter
+        hr
+        .columns
+          .column.col-3.col-sm-10.col-mx-auto
+            h6= e.date
+            small
+              em
+                p= e.location
+            p.hide-sm
+              img.img-responsive(src="https://maps.googleapis.com/maps/api/staticmap?center=" + e.location + "&zoom=13&size=300x300&maptype=roadmap&markers=color:red%7Clabel:%7C" + e.location + "&key=AIzaSyDAU86NGlydy0BQelvDwDSKjGaMz4m-nxc")
+          .column.col-8.col-sm-10.col-mx-auto
+            p= e.agenda
+              br
+              em via: &nbsp;
+                a(href=e.viaLink)= e.via

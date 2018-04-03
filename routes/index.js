@@ -202,6 +202,13 @@ router.post("/dialog", async (req, res) => {
   res.json(response)
 })
 
+/* Event landing page */
+router.get("/event/:id", async (req, res) => {
+  let e = await db.Event.findOne({ _id: req.params.id })
+
+  res.render("event", { e: e })
+})
+
 /* Letter landing page */
 router.get("/letter/:id/:token", async (req, res) => {
   let letter = await db.Letter.findOne({ _id: req.params.id })
