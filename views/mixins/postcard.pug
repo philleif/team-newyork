@@ -9,8 +9,7 @@ mixin postcard(letter, representative, anon)
           = representative.name
           | ,
         p= letter.content
-        h6 Your Constituent,
-        br
+        strong Your Constituent,
         if (anon)
           form(action="/mayor", method="post")
             .columns
@@ -22,7 +21,8 @@ mixin postcard(letter, representative, anon)
                 center
                   button.btn(type="submit") Send
         else
-          h6= user.name
+          .signature= user.name
+          br
           form(action="/email", method="post")
             input(type="hidden", name="representative", value=representative.id)
             input(type="hidden", name="letter", value=letter.id)

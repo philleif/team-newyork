@@ -132,6 +132,10 @@ section {
   section.submit {
     background: #FDEF43; }
 
+.signature {
+  font-family: 'Caveat', cursive;
+  font-size: 1.5em; }
+
 img {
   width: 100%; }
   img.logo {
