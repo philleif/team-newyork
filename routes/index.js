@@ -21,8 +21,17 @@ function isLoggedIn(req, res, next) {
 /* GET home page. */
 router.get("/", async (req, res, next) => {
   let events = await db.Event.find({}).limit(1)
+  let representative = await db.Representative.findOne({
+    office: "Mayor"
+  })
+  let letter = await db.Letter.findOne({})
 
-  res.render("index", { user: req.user, events: events })
+  res.render("index", {
+    user: req.user,
+    events: events,
+    letter: letter,
+    representative: representative
+  })
 })
 
 /* Send a letter via dashboard. */
@@ -81,7 +90,9 @@ router.get("/mayor", async (req, res) => {
 /* User Homepage. */
 router.get("/dashboard", isLoggedIn, async (req, res) => {
   let letter = await db.Letter.findOne({}).sort("-date")
-  let events = await db.Event.find({}).sort("-date").limit(5)
+  let events = await db.Event.find({})
+    .sort("-date")
+    .limit(5)
 
   if (req.user.letters.includes(letter.id)) {
     letter = false
@@ -92,7 +103,7 @@ router.get("/dashboard", isLoggedIn, async (req, res) => {
   res.render("dashboard", {
     user: req.user,
     events: events,
-    letter: letter,
+    letter: letter
   })
 })
 

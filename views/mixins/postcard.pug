@@ -1,0 +1,29 @@
+mixin postcard(letter, representative, anon)
+
+  .postcard
+    .columns
+      .column.col-3.hide-sm
+        img(src=representative.portrait)
+      .column.col-8.col-sm-12.col-mx-auto
+        h5 Attn.&nbsp;
+          = representative.name
+          | ,
+        p= letter.content
+        h6 Your Constituent,
+        br
+        if (anon)
+          form(action="/mayor", method="post")
+            .columns
+              .column.col-4
+                input(type="text", name="name", placeholder="Your Name")
+              .column.col-4
+                input(type="text", name="email", placeholder="Your Email")
+              .column.col-4
+                center
+                  button.btn(type="submit") Send
+        else
+          h6= user.name
+          form(action="/email", method="post")
+            input(type="hidden", name="representative", value=representative.id)
+            input(type="hidden", name="letter", value=letter.id)
+            button.btn(type="submit", value="Send Email") Send Email

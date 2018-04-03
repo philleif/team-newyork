@@ -1,5 +1,6 @@
 extends layout
 include mixins/events.pug
+include mixins/postcard.pug
 
 block content
   if (letter)
@@ -7,25 +8,7 @@ block content
       .container.grid-md
         center
           h1 Let's Go!
-        .postcard
-          .columns
-            .column.col-3.hide-sm
-              img(src=user.representatives.councilMember.banner)
-              h5= user.representatives.councilMember.name
-              h6= user.neighborhood
-              h6= "District " + user.representatives.councilMember.district
-            .column.col-md-8.col-sm-12
-              h5 Attn. Rep.&nbsp;
-                = user.representatives.councilMember.name
-                | ,
-              p= letter.content
-              h6 Your Constituent,
-              h6= user.name
-              br
-              form(action="/email", method="post")
-                input(type="hidden", name="representative", value=user.representatives.councilMember.id)
-                input(type="hidden", name="letter", value=letter.id)
-                button.btn(type="submit", value="Send Email") Send Email
+        +postcard(letter, user.representatives.councilMember, false)
 
   section.submit
     .container.grid-sm
@@ -49,7 +32,7 @@ block content
       .postcard
         .columns
           .column.col-6.col-sm-12
-            img.img-responsive(src=user.representatives.councilMember.banner)
+            img.img-responsive(src=user.representatives.councilMember.portrait)
           .column.col-6.col-sm-12
             h4= user.representatives.councilMember.name
             h5= user.neighborhood

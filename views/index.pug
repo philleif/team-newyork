@@ -1,5 +1,6 @@
 extends layout
 include mixins/events.pug
+include mixins/postcard.pug
 
 block content
   header.hero
@@ -32,25 +33,7 @@ block content
       .container.grid-md
         center
           h2 Hey Mayor!
-        .postcard
-          .columns
-            .column.col-4.hide-sm
-              img.img-responsive(src="/images/deblasio.jpg")
-            .column.col-md-8.col-sm-12
-              h6 Dear Mayor DeBlasio,
-              p It is imperative you oppose SR-123, the Kill the Puppies Act of 2018.
-              p The ASPCA sums it up nicely: "Do not hurt the puppies. Puppies are our friends. Because puppy mills focus on profit, dogs are often bred with little regard for genetic quality. Puppy mill puppies are prone to congenital and hereditary conditions including heart disease and blood and respiratory disorders."
-              p I'm grateful for your continued service to NY.
-              h6 Your Constituent,
-              form(action="/mayor", method="post")
-                .columns
-                  .column.col-4
-                    input(type="text", name="name", placeholder="Your Name")
-                  .column.col-4
-                    input(type="text", name="email", placeholder="Your Email")
-                  .column.col-4
-                    center
-                      button.btn(type="submit") Send
+        +postcard(letter, representative, true)
 
     section.about
       .container.grid-md
