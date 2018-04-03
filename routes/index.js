@@ -224,13 +224,13 @@ router.get("/event/:id", async (req, res) => {
 router.get("/letter/:id/:token", async (req, res) => {
   let letter = await db.Letter.findOne({ _id: req.params.id })
   let user = await db.User.findOne({ "tokens.letter": req.params.token })
-  let member = false
+  let representative = false
   let district = false
 
   if (user === null) {
     user = false
   } else {
-    member = await userHelper.lookupMember(user)
+    representative = await userHelper.lookupMember(user)
     district = await db.District.findOne({
       $text: { $search: user.neighborhood }
     })
@@ -241,7 +241,7 @@ router.get("/letter/:id/:token", async (req, res) => {
   }
 
   res.render("letter", {
-    member: member,
+    representative: representative,
     letter: letter,
     user: user,
     district: district
