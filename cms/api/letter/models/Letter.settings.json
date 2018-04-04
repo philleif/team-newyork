@@ -39,6 +39,10 @@
     "office": {
       "type": "string",
       "multiple": false
+    },
+    "published": {
+      "type": "boolean",
+      "multiple": false
     }
   }
 }

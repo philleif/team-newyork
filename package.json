@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "agenda": "^1.0.3",
     "axios": "^0.18.0",
     "bcrypt": "^1.0.3",
     "bcrypt-nodejs": "0.0.3",

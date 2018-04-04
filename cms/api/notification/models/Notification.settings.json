@@ -21,8 +21,12 @@
       "type": "date",
       "multiple": false
     },
-    "expires": {
-      "type": "date",
+    "sent": {
+      "type": "boolean",
+      "multiple": false
+    },
+    "published": {
+      "type": "boolean",
       "multiple": false
     }
   }
