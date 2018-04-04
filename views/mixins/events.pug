@@ -1,23 +1,23 @@
-mixin events(events)
+mixin events(meetings)
 
   section.agenda
     .container.grid-md
       center
         h2 Agenda
-      - for (let e of events)
+      - for (let meeting of meetings)
         hr
         .columns
           .column.col-3.col-sm-10.col-mx-auto
-            h6= e.date
+            h6= meeting.date
             small
               em
-                p= e.location
+                p= meeting.location
             p.hide-sm
-              img.img-responsive(src="https://maps.googleapis.com/maps/api/staticmap?center=" + e.location + "&zoom=13&size=300x300&maptype=roadmap&markers=color:red%7Clabel:%7C" + e.location + "&key=AIzaSyDAU86NGlydy0BQelvDwDSKjGaMz4m-nxc")
+              img.img-responsive(src="https://maps.googleapis.com/maps/api/staticmap?center=" + meeting.location + "&zoom=13&size=300x300&maptype=roadmap&markers=color:red%7Clabel:%7C" + meeting.location + "&key=AIzaSyDAU86NGlydy0BQelvDwDSKjGaMz4m-nxc")
           .column.col-8.col-sm-10.col-mx-auto
             h5
-              a(href="/event/" + e.id)= e.via + ": " + e.name
-            p= e.agenda
+              a(href="/event/" + meeting.id)= meeting.via + ": " + meeting.name
+            p= meeting.agenda
               br
               em via: &nbsp;
-                a(href=e.viaLink)= e.via
+                a(href=meeting.viaLink)= meeting.via

@@ -20,7 +20,7 @@ function isLoggedIn(req, res, next) {
 
 /* GET home page. */
 router.get("/", async (req, res, next) => {
-  let events = await db.Event.find({}).limit(1)
+  let meetings = await db.Meeting.find({}).limit(1)
   let representative = await db.Representative.findOne({
     office: "Mayor"
   })
@@ -28,7 +28,7 @@ router.get("/", async (req, res, next) => {
 
   res.render("index", {
     user: req.user,
-    events: events,
+    meetings: meetings,
     letter: letter,
     representative: representative
   })
@@ -90,7 +90,7 @@ router.get("/mayor", async (req, res) => {
 /* User Homepage. */
 router.get("/dashboard", isLoggedIn, async (req, res) => {
   let letter = await db.Letter.findOne({}).sort("-date")
-  let events = await db.Event.find({})
+  let meetings = await db.Meeting.find({})
     .sort("-date")
     .limit(5)
 
@@ -98,11 +98,9 @@ router.get("/dashboard", isLoggedIn, async (req, res) => {
     letter = false
   }
 
-  console.log(events)
-
   res.render("dashboard", {
     user: req.user,
-    events: events,
+    meetings: meetings,
     letter: letter
   })
 })
@@ -215,9 +213,9 @@ router.post("/dialog", async (req, res) => {
 
 /* Event landing page */
 router.get("/event/:id", async (req, res) => {
-  let e = await db.Event.findOne({ _id: req.params.id })
+  let meeting = await db.Meeting.findOne({ _id: req.params.id })
 
-  res.render("event", { e: e })
+  res.render("event", { meeting: meeting})
 })
 
 /* Letter landing page */
