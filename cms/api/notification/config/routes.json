@@ -1,0 +1,44 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/notification",
+      "handler": "Notification.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/notification/:_id",
+      "handler": "Notification.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/notification",
+      "handler": "Notification.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/notification/:_id",
+      "handler": "Notification.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/notification/:_id",
+      "handler": "Notification.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "connection": "default",
+  "collectionName": "notifications",
+  "info": {
+    "name": "notification",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "multiple": false
+    },
+    "notificationText": {
+      "type": "string",
+      "multiple": false
+    },
+    "date": {
+      "type": "date",
+      "multiple": false
+    },
+    "expires": {
+      "type": "date",
+      "multiple": false
+    }
+  }
+}
