@@ -15,10 +15,13 @@ const run = async () => {
   user.lastMessage = new Date()
   await user.save()
   */
-  //await db.AgendaJob.remove({}, function() {})
 
-  agenda.on("ready", function () {
-    agenda.every("5 seconds", "send letter notifications")
+  agenda.on("ready", async () => {
+    await db.AgendaJob.remove({})
+
+    agenda.every("10 seconds", "send letter notifications")
+    agenda.every("10 seconds", "send meeting notifications")
+
 
     agenda.start()
   })
