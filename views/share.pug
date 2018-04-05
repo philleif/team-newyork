@@ -1,4 +1,6 @@
 extends simple
+include mixins/facebook.pug
+include mixins/twitter.pug
 
 block content
   header
@@ -10,7 +12,15 @@ block content
             em "I just emailed my city rep about the #{letter.subject}, and you should too! #{letter.shareText}"
           br
         .columns
-          .column.col-4.col-sm-8.col-mx-auto
-            a.btn.facebook(href="#") Share on Facebook
-          .column.col-4.col-sm-8.col-mx-auto
-            a.btn.twitter(href="#") Share on Twitter
+          .column.col-2.col-sm-8.col-ml-auto
+            #fb-root
+            .fb-share-button(data-href='https://newyorkcity.team/letter/' + letter.id, data-layout='button_count', data-size='large', data-mobile-iframe='true')
+              a.fb-xfbml-parse-ignore(target='_blank', href='https://newyorkcity.team/letter/' + letter.id) Share
+
+          .column.col-2.col-sm-8.col-mr-auto
+            a.twitter-share-button(href='https://twitter.com/intent/tweet?text=' + letter.notificationText, data-size='large') Tweet
+
+
+block javascript
+  +facebook()
+  +twitter()

@@ -1,4 +1,12 @@
 extends layout
+include mixins/facebook.pug
+include mixins/twitter.pug
+
+block meta
+  meta(property='og:type', content='website')
+  meta(property='og:title', content='Team New York | ' + meeting.name)
+  meta(property='og:description', content=meeting.notificationText)
+  meta(property='og:image', content="https://maps.googleapis.com/maps/api/staticmap?center=" + meeting.location + "&zoom=13&size=300x300&maptype=roadmap&markers=color:red%7Clabel:%7C" + meeting.location + "&key=AIzaSyDAU86NGlydy0BQelvDwDSKjGaMz4m-nxc")
 
 block content
   section.agenda
@@ -7,10 +15,13 @@ block content
         h5= meeting.via
         h2= meeting.name
         .columns
-          .column.col-3.col-sm-8.col-ml-auto
-            a.btn.facebook(href="#") Share on Facebook
-          .column.col-3.col-sm-8.col-mr-auto
-            a.btn.twitter(href="#") Share on Twitter
+          .column.col-2.col-sm-8.col-ml-auto
+            #fb-root
+            .fb-share-button(data-href='https://newyorkcity.team/event/' + meeting.id, data-layout='button_count', data-size='large', data-mobile-iframe='true')
+              a.fb-xfbml-parse-ignore(target='_blank', href='https://newyorkcity.team/event/' + meeting.id) Share
+
+          .column.col-2.col-sm-8.col-mr-auto
+            a.twitter-share-button(href='https://twitter.com/intent/tweet?text=' + meeting.notificationText, data-size='large') Tweet
         hr
         .columns
           .column.col-3.col-sm-10.col-mx-auto
@@ -25,3 +36,7 @@ block content
               br
               em via: &nbsp;
                 a(href=meeting.viaLink)= meeting.via
+
+block javascript
+  +facebook()
+  +twitter()

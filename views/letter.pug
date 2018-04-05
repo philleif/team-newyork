@@ -1,5 +1,11 @@
 extends simple
 
+block meta
+  meta(property='og:type', content='website')
+  meta(property='og:title', content='Team New York | ' + letter.subject)
+  meta(property='og:description', content=letter.content)
+  meta(property='og:image', content='https://newyorkcity.team/images/social-image.png')
+
 block content
   if (letter && user)
     section

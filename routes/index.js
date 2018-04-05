@@ -12,7 +12,6 @@ const express = require("express")
 const intercom = require("../lib/intercom")
 
 const router = express.Router()
-const today = new Date()
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next()
@@ -21,6 +20,8 @@ function isLoggedIn(req, res, next) {
 
 /* GET home page. */
 router.get("/", async (req, res, next) => {
+  const today = new Date()
+
   let meetings = await db.Meeting.find({
     published: true,
     date: { $gt: today.getDate() }
@@ -98,10 +99,13 @@ router.get("/mayor", async (req, res) => {
 
 /* User Homepage. */
 router.get("/dashboard", isLoggedIn, async (req, res) => {
+  const today = new Date()
+
   let letter = await db.Letter.findOne({
     published: true,
     expiration: { $gt: today.getDate() }
   })
+
   let meetings = await db.Meeting.find({
     published: true,
     date: { $gt: today.getDate() }
