@@ -20,7 +20,9 @@ function isLoggedIn(req, res, next) {
 
 /* GET home page. */
 router.get("/", async (req, res, next) => {
-  let meetings = await db.Meeting.find({}).limit(1)
+  let meetings = await db.Meeting.find({ published: true })
+    .limit(1)
+    .sort({ date: 1 })
   let representative = await db.Representative.findOne({
     office: "Mayor"
   })
@@ -89,9 +91,9 @@ router.get("/mayor", async (req, res) => {
 
 /* User Homepage. */
 router.get("/dashboard", isLoggedIn, async (req, res) => {
-  let letter = await db.Letter.findOne({}).sort("-date")
-  let meetings = await db.Meeting.find({})
-    .sort("-date")
+  let letter = await db.Letter.findOne({})
+  let meetings = await db.Meeting.find({ published: true })
+    .sort({ date: 1 })
     .limit(5)
 
   if (req.user.letters.includes(letter.id)) {
@@ -215,7 +217,7 @@ router.post("/dialog", async (req, res) => {
 router.get("/event/:id", async (req, res) => {
   let meeting = await db.Meeting.findOne({ _id: req.params.id })
 
-  res.render("event", { meeting: meeting})
+  res.render("event", { meeting: meeting })
 })
 
 /* Letter landing page */
