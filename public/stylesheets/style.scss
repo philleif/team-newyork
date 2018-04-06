@@ -2,6 +2,7 @@ $primary: #000000;
 $secondary: #000033;
 $red: #ef4621;
 $yellow: #FDEF43;
+$blue: #0084FF;
 
 @font-face {
   font-family: "GT-Walsheim-Pro-Bold";
@@ -24,7 +25,7 @@ $yellow: #FDEF43;
 }
 
 body {
-  font-family: "GT-Walsheim-Pro-Regular";
+  font-family: Roboto;
   padding: 0px;
   color: #333333;
   border-top: 8px solid $primary;
@@ -38,16 +39,22 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "GT-America-Expanded-Black";
+  font-family: "GT-Walsheim-Pro-Bold";
   color: $primary;
-  text-transform: uppercase;
   margin-bottom: 1em;
 }
 
 h1 {
+  font-family: "GT-Walsheim-Pro-Bold";
+  text-transform: uppercase;
   margin-bottom: 0.4em;
   line-height: 1em;
   font-size: 6em;
+}
+
+h2 {
+  text-transform: uppercase;
+  text-decoration: underline;
 }
 
 h5, h6 {
@@ -75,12 +82,6 @@ nav {
     &:hover {
       text-decoration: none;
     }
-  }
-}
-
-header {
-  &.hero {
-    background: $yellow;
   }
 }
 
@@ -131,12 +132,13 @@ footer {
 }
 
 section {
-  padding-top: 2em;
-  padding-bottom: 2em;
+  padding-top: 1em;
+  padding-bottom:1em;
   &.agenda {
     background: white;
   }
   &.hero {
+    background: $yellow;
     .columns {
       margin-top: 1em;
     }
@@ -148,12 +150,19 @@ section {
         font-size: 2em;
         line-height: 1.2em;
         text-align: left;
+        font-family: "GT-Walsheim-Pro-Bold";
       }
       a.btn {
         margin-top: 1em;
         padding-left: 2em;
         padding-right: 2em;
       }
+    }
+  }
+  &.letter {
+    padding-top: 2em;
+    h2 {
+      color: $red;
     }
   }
   &.email {
@@ -172,11 +181,6 @@ section {
       color: white;
     }
   }
-  &.letter {
-    h2 {
-      color: $red;
-    }
-  }
   &.join {
     margin-bottom: 2em;
     .btn {
@@ -184,6 +188,7 @@ section {
     }
   }
   &.support {
+    background: $yellow;
     .btn {
       margin-top: 1em;
     }
@@ -268,11 +273,7 @@ img {
 
 .postcard {
   background: white;
-  border: 8px solid $red;
   padding: 1em;
-  margin-top: 4em;
-  margin-bottom: 2em;
-  filter: drop-shadow(0 0 10px #666);
   input {
     width: 100%;
   }

@@ -9,64 +9,62 @@ block meta
   meta(property='og:image', content='https://newyorkcity.team/images/social-image.png')
 
 block content
-  header.hero
-    section.hero
-      .container.grid-sm
-        center
-          img.logo(src="/images/team-nyc-logo-red.png")
-          h1 YOU CAN
-            br
-            | DO IT!
+  section.hero
+    .container.grid-sm
+      center
+        img.logo(src="/images/team-nyc-logo-red.png")
+        h1 YOU CAN
+          br
+          | DO IT!
 
-      .container.grid-md
-        .columns
-          .column.col-5.col-sm-10.col-ml-auto
-            video.img-responsive(src="/images/phone-animation.mp4", autoplay, poster="/images/phone.png")
-              img.shadow(src="/images/phone.png")
-          .column.col-5.col-sm-10.col-mx-auto
-            .intro
-              p Team New York makes it easy to stay active in NYC politics:
-              ul
-                li Personalized city news
-                li Action alerts
-                li One-click letters to your city reps
-                li Local event calendar
-              h6 $5/month Donation
-              a.btn(href="/join") Join Now
-
-    section.letter
-      .container.grid-md
-        hr
-        center
-          h2 Hey Mayor!
-        +postcard(letter, representative, true)
-
-    +events(meetings)
-
-    section.about
-      .container.grid-md
-        center
-          h2 About Us
-        .columns
-          .column.col-8.col-mx-auto
-            center
-              | Team New York makes it easy to engage in local politics by sending action alerts and organizing toolkits on a community board, borough, and city-wide level.
-
-    section.support
-      .container.grid-md
-        center
-          h2 Support Team
-            br
-            | New York
-        .columns
-          .column.col-4.col-sm-8.col-mx-auto
-            img(src="/images/tote.png")
-          .column.col-6.col-sm-8.col-mx-auto
-            h5 NYC Tote Bag
-            h5 $19
-            p Team New York makes it easy to engage in local politics by sending action alerts and organizing toolkits on a community board, borough, and city-wide level.
+    .container.grid-md
+      .columns
+        .column.col-5.col-sm-10.col-ml-auto
+          video.img-responsive(src="/images/phone-animation.mp4", autoplay, poster="/images/phone.png")
+            img.shadow(src="/images/phone.png")
+        .column.col-5.col-sm-10.col-mx-auto
+          .intro
+            p Team New York makes it easy to stay active in NYC politics:
             ul
-              li 100% Cotton Tote
-              li Made in the USA
-              li Ships from Brooklyn
-            a.btn Buy Now
+              li Personalized action alerts
+              li One-click letters to your city reps
+              li Local event calendar
+            h6 $5/Month Donation
+            a.btn(href="/join") Join Now
+
+  section.letter
+    .container.grid-md
+      center
+        h2 Hey Mayor!
+      +postcard(letter, representative, true)
+      hr
+
+  +events(meetings)
+
+  section.support
+    .container.grid-md
+      center
+        h2 Support Team
+          br
+          | New York
+      .columns
+        .column.col-4.col-sm-8.col-mx-auto
+          img(src="/images/tote.png")
+        .column.col-6.col-sm-8.col-mx-auto
+          h5 Big Tote Bag
+          h5 $24
+          p Team New York makes it easy to engage in local politics by sending action alerts and organizing toolkits on a community board, borough, and city-wide level.
+          ul
+            li 100% Cotton Tote
+            li Made in the USA
+            li Ships from Brooklyn
+          a.btn Buy Now
+
+  section.about
+    .container.grid-md
+      center
+        h2 About Us
+      .columns
+        .column.col-8.col-mx-auto
+          center
+            | Team New York makes it easy to engage in local politics by sending action alerts and organizing toolkits on a community board, borough, and city-wide level.

@@ -6,6 +6,7 @@ html
     link(rel='stylesheet', href='/stylesheets/spectre-icons.min.css')
     link(rel='stylesheet', href='/stylesheets/spectre-exp.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto')
     link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Caveat')
     script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
     // Global site tag (gtag.js) - Google Analytics
@@ -15,7 +16,9 @@ html
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'UA-116732316-1');
+
     block meta
+
   body
     nav
       .container.grid-md
@@ -31,6 +34,7 @@ html
             else
               a.btn.hide-sm(href='/join') Join Now
               a(href='/login') Log In
+
     block content
 
     footer
