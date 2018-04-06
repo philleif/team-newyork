@@ -1,3 +1,8 @@
+/*
+$red: #ef4621;
+$yellow: #FDEF43;
+$blue: #0084FF;
+*/
 @font-face {
   font-family: "GT-Walsheim-Pro-Bold";
   src: url("/fonts/GT-Walsheim-Pro-Bold.ttf"); }
@@ -13,8 +18,7 @@
 body {
   font-family: Roboto;
   padding: 0px;
-  color: #333333;
-  border-top: 8px solid #000000; }
+  color: #333333; }
   body.simple {
     background: #FDEF43; }
 
@@ -49,7 +53,8 @@ ul {
     margin-bottom: 0.5em; }
 
 nav {
-  background: #000000; }
+  background: #FDEF43;
+  padding-bottom: 2em; }
   nav .navbar-section {
     padding-top: 1em;
     padding-bottom: 1em; }
@@ -60,13 +65,13 @@ nav {
       text-decoration: none; }
 
 a {
-  color: #ef4621; }
+  color: #f24236; }
   a:hover {
-    color: #ef4621; }
+    color: #f24236; }
   a.patreon {
     color: #f96854; }
   a.active {
-    color: #ef4621; }
+    color: #f24236; }
 
 p {
   text-align: justify; }
@@ -115,7 +120,7 @@ section {
   section.letter {
     padding-top: 2em; }
     section.letter h2 {
-      color: #ef4621; }
+      color: #f24236; }
   section.email {
     color: #ffffff;
     background: #000000;
@@ -137,7 +142,7 @@ section {
     section.support .btn {
       margin-top: 1em; }
     section.support h5 {
-      color: #ef4621; }
+      color: #f24236; }
     section.support h5 {
       margin-bottom: 0; }
     section.support p {
@@ -172,16 +177,16 @@ img {
 
 .btn {
   color: white;
-  background: #ef4621;
-  border: 2px solid #ef4621;
+  background: #f24236;
+  border: 2px solid #f24236;
   border-radius: 0;
   padding-left: 2em;
   padding-right: 2em;
   border-radius: 12px; }
   .btn:hover {
-    color: #ef4621;
+    color: #f24236;
     background: white;
-    border: 2px solid #ef4621; }
+    border: 2px solid #f24236; }
   .btn.twitter {
     background: #1dcaff;
     border: 2px solid #1dcaff; }
@@ -196,15 +201,14 @@ img {
       background: white; }
 
 .postcard {
-  background: white;
-  padding: 1em; }
+  background: white; }
   .postcard input {
     width: 100%; }
   .postcard a.btn {
     width: 100%; }
 
 .message {
-  color: #ef4621;
+  color: #f24236;
   padding-bottom: 2em; }
 
 .shadow {

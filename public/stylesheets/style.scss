@@ -1,6 +1,12 @@
 $primary: #000000;
 $secondary: #000033;
+/*
 $red: #ef4621;
+$yellow: #FDEF43;
+$blue: #0084FF;
+*/
+
+$red: #f24236;
 $yellow: #FDEF43;
 $blue: #0084FF;
 
@@ -28,7 +34,6 @@ body {
   font-family: Roboto;
   padding: 0px;
   color: #333333;
-  border-top: 8px solid $primary;
   &.simple {
     background: $yellow;
   }
@@ -71,7 +76,8 @@ ul {
 }
 
 nav {
-  background: $primary;
+  background: $yellow;
+  padding-bottom: 2em;
   .navbar-section {
     padding-top: 1em;
     padding-bottom: 1em;
@@ -273,7 +279,6 @@ img {
 
 .postcard {
   background: white;
-  padding: 1em;
   input {
     width: 100%;
   }

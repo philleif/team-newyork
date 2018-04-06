@@ -24,11 +24,13 @@ block content
           br
           button.btn(type="submit") Submit
 
+  +events(meetings)
+
   section
     .container.grid-md
+      hr
       center
         h2 Your Team
-      hr
       .postcard
         .columns
           .column.col-6.col-sm-12
@@ -50,7 +52,6 @@ block content
               - if(channel.type === "Facebook")
                 a(href="https://facebook.com/" + channel.id)= "facebook.com/" + channel.id
                 br
-
       .columns
         - for(let rep of user.representatives.representatives)
           .column.col-6.col-sm-10.col-mx-auto
@@ -74,8 +75,6 @@ block content
                       - if(channel.type === "Facebook")
                         a(href="https://facebook.com/" + channel.id)= "facebook.com/" + channel.id
                         br
-
-  +events(meetings)
 
   script.
     $("#dashboard").addClass("active")
