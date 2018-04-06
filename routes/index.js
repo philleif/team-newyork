@@ -24,7 +24,7 @@ router.get("/", async (req, res, next) => {
 
   let meetings = await db.Meeting.find({
     published: true,
-    date: { $gt: today.getDate() }
+    date: { $gt: today }
   })
     .limit(1)
     .sort({ date: 1 })
@@ -33,7 +33,7 @@ router.get("/", async (req, res, next) => {
   })
   let letter = await db.Letter.findOne({
     published: true,
-    expiration: { $gt: today.getDate() }
+    expiration: { $gt: today }
   })
 
   res.render("index", {
@@ -103,12 +103,12 @@ router.get("/dashboard", isLoggedIn, async (req, res) => {
 
   let letter = await db.Letter.findOne({
     published: true,
-    expiration: { $gt: today.getDate() }
+    expiration: { $gt: today }
   })
 
   let meetings = await db.Meeting.find({
     published: true,
-    date: { $gt: today.getDate() }
+    date: { $gt: today }
   })
     .sort({ date: 1 })
     .limit(5)
