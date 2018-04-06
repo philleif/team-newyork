@@ -36,7 +36,8 @@ h1 {
   text-transform: uppercase;
   margin-bottom: 0.4em;
   line-height: 1em;
-  font-size: 6em; }
+  font-size: 4em;
+  color: #f24236; }
 
 h2 {
   text-transform: uppercase;
@@ -148,7 +149,8 @@ section {
     section.support p {
       margin-top: 1em; }
   section.submit {
-    background: #FDEF43; }
+    background: #FDEF43;
+    padding-bottom: 2em; }
 
 .signature {
   font-family: 'Caveat', cursive;

@@ -54,7 +54,8 @@ h1 {
   text-transform: uppercase;
   margin-bottom: 0.4em;
   line-height: 1em;
-  font-size: 6em;
+  font-size: 4em;
+  color: $red;
 }
 
 h2 {
@@ -210,6 +211,7 @@ section {
   }
   &.submit {
     background: $yellow;
+    padding-bottom: 2em;
   }
 }
 
