@@ -34,13 +34,14 @@ block content
               h6 $5/month Donation
               a.btn(href="/join") Join Now
 
-    .container.grid-md
-      hr
     section.letter
       .container.grid-md
+        hr
         center
           h2 Hey Mayor!
         +postcard(letter, representative, true)
+
+    +events(meetings)
 
     section.about
       .container.grid-md
@@ -50,8 +51,6 @@ block content
           .column.col-8.col-mx-auto
             center
               | Team New York makes it easy to engage in local politics by sending action alerts and organizing toolkits on a community board, borough, and city-wide level.
-
-    +events(meetings)
 
     section.support
       .container.grid-md
