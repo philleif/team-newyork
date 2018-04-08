@@ -101,11 +101,20 @@ router.get("/mayor", async (req, res) => {
 /* User Homepage. */
 router.get("/dashboard", isLoggedIn, async (req, res) => {
   const today = new Date()
+  let representative = null
 
   let letter = await db.Letter.findOne({
     published: true,
     expiration: { $gt: today }
   })
+
+  if(letter.office === "City Council") {
+    representative = req.user.representatives.councilMember
+  } else {
+    representative = await db.Representative.findOne({
+      office: letter.office
+    })
+  }
 
   let meetings = await db.Meeting.find({
     published: true,
@@ -119,6 +128,7 @@ router.get("/dashboard", isLoggedIn, async (req, res) => {
   }
 
   res.render("dashboard", {
+    representative: representative,
     user: req.user,
     meetings: meetings,
     letter: letter
