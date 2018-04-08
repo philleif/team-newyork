@@ -216,11 +216,11 @@ router.post("/verify", isLoggedIn, async (req, res) => {
 
 /* Static Pages. */
 router.get("/terms", (req, res) => {
-  res.render("terms")
+  res.render("pages/terms")
 })
 
 router.get("/privacy", (req, res) => {
-  res.render("privacy")
+  res.render("pages/privacy")
 })
 
 /* Chat bot handler */
