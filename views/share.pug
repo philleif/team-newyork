@@ -1,26 +1,39 @@
 extends simple
 include mixins/facebook.pug
 include mixins/twitter.pug
+include mixins/postcard.pug
+include mixins/about.pug
 
 block content
   header
-    section.join
-      .container.grid-md
+    section.share
+      .container.grid-sm
         center
-          h2 You did it!
-          h6
-            em "I just emailed my city rep about the #{letter.subject}, and you should too! #{letter.shareText}"
-          br
-        .columns
-          .column.col-2.col-sm-8.col-ml-auto
-            #fb-root
-            .fb-share-button(data-href='https://newyorkcity.team/letter/' + letter.id, data-layout='button_count', data-size='large', data-mobile-iframe='true')
-              a.fb-xfbml-parse-ignore(target='_blank', href='https://newyorkcity.team/letter/' + letter.id) Share
+          h2 Get the word out!
+        .wrapper
+          if user
+            center
+              h3
+                em Hey&nbsp;
+                  span.blue @#{representative.channels[0].id}
+                  | !
+                  br
+                  | #{letter.shareText}
+              .columns
+                .column.col-2.col-sm-8.col-ml-auto
+                  #fb-root
+                  .fb-share-button(data-href='https://newyorkcity.team/letter/' + letter.id, data-layout='button_count', data-size='large', data-mobile-iframe='true')
+                    a.fb-xfbml-parse-ignore(target='_blank', href='https://newyorkcity.team/letter/' + letter.id) Share
 
-          .column.col-2.col-sm-8.col-mr-auto
-            a.twitter-share-button(href='https://twitter.com/intent/tweet?text=' + letter.notificationText, data-size='large') Tweet
+                .column.col-2.col-sm-8.col-mr-auto
+                  a.twitter-share-button(href='https://twitter.com/intent/tweet?text=' + letter.notificationText, data-size='large') Tweet
+          else
+            +postcard(letter, representative, true)
 
+  if !user
+    +about()
 
 block javascript
-  +facebook()
-  +twitter()
+  if user
+    +facebook()
+    +twitter()

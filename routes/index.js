@@ -108,7 +108,7 @@ router.get("/dashboard", isLoggedIn, async (req, res) => {
     expiration: { $gt: today }
   })
 
-  if(letter.office === "City Council") {
+  if (letter.office === "City Council") {
     representative = req.user.representatives.councilMember
   } else {
     representative = await db.Representative.findOne({
@@ -288,13 +288,29 @@ router.post("/letter", async (req, res) => {
   await email.sendLetter(user, rep, letter)
   await userHelper.refreshTokens(user)
 
-  res.redirect("/share/" + letter.id)
+  if (req.user) {
+    res.redirect("/share/" + user.id + "/" + letter.id)
+  } else {
+    res.redirect("/share/" + letter.id)
+  }
 })
 
 router.get("/share/:id", async (req, res) => {
   let letter = await db.Letter.findOne({ _id: req.params.id })
+  let representative = null
 
-  res.render("share", { letter: letter })
+  if (letter.office === "City Council" && req.user) {
+    representative = req.user.representatives.councilMember
+  } else {
+    representative = await db.Representative.findOne({ office: letter.office })
+  }
+
+  res.render("share", {
+    letter: letter,
+    user: req.user ,
+    representative: representative
+  })
+
 })
 
 module.exports = router

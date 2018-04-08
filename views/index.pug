@@ -1,6 +1,7 @@
 extends layout
 include mixins/events.pug
 include mixins/postcard.pug
+include mixins/about.pug
 
 block meta
   meta(property='og:type', content='website')
@@ -58,11 +59,4 @@ block content
             li Ships from Brooklyn
           a.btn Buy Now
 
-  section.about
-    .container.grid-md
-      center
-        h2 About Us
-      .columns
-        .column.col-8.col-mx-auto
-          center
-            | Team New York makes it easy to engage in local politics by sending action alerts and organizing toolkits on a community board, borough, and city-wide level.
+  +about()
