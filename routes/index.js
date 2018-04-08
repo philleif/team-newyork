@@ -33,7 +33,8 @@ router.get("/", async (req, res, next) => {
   })
   let letter = await db.Letter.findOne({
     published: true,
-    expiration: { $gt: today }
+    expiration: { $gt: today },
+    office: "Mayor"
   })
 
   res.render("index", {
