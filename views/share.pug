@@ -1,4 +1,4 @@
-extends simple
+extends layout
 include mixins/facebook.pug
 include mixins/twitter.pug
 include mixins/postcard.pug
@@ -7,8 +7,10 @@ include mixins/about.pug
 block content
   header
     section.share
-      .container.grid-sm
+      .container.grid-md
         center
+          img.logo(src="/images/team-nyc-logo-red.png")
+
           h2 Get the word out!
         .wrapper
           if user
