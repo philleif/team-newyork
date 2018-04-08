@@ -10,13 +10,31 @@ const dialog = require("../lib/google-dialog")
 const passport = require("passport")
 const express = require("express")
 const intercom = require("../lib/intercom")
+const sm = require("sitemap")
 
 const router = express.Router()
+
+let sitemap = sm.createSitemap({
+  hostname: "https://newyorkcity.team",
+  cacheTime: 600000, // 600 sec - cache purge period
+  urls: [{ url: "/", changefreq: "daily", priority: 0.3 }]
+})
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next()
   res.redirect("/login")
 }
+
+/* Sitemap */
+router.get("/sitemap.xml", function(req, res) {
+  sitemap.toXML(function(err, xml) {
+    if (err) {
+      return res.status(500).end()
+    }
+    res.header("Content-Type", "application/xml")
+    res.send(xml)
+  })
+})
 
 /* GET home page. */
 router.get("/", async (req, res, next) => {
@@ -307,10 +325,9 @@ router.get("/share/:id", async (req, res) => {
 
   res.render("share", {
     letter: letter,
-    user: req.user ,
+    user: req.user,
     representative: representative
   })
-
 })
 
 module.exports = router
