@@ -1,4 +1,5 @@
 extends layout
+include mixins/postcard.pug
 
 block meta
   meta(property='og:type', content='website')
@@ -7,11 +8,8 @@ block meta
   meta(property='og:image', content='https://newyorkcity.team/images/social-image.png')
 
 block content
-  if (letter && user)
-    section
-      .container.grid-md
-        +postcard(letter, user.representatives.councilMember, false)
-  else
-    center
-      h6 You've already sent this letter!
-      p We'll send you an alert once there's more news.
+  section
+    .container.grid-md
+      center
+        h2 Get the word out!
+      +postcard(letter, representative, true)

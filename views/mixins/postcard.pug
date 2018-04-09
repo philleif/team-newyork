@@ -18,12 +18,14 @@ mixin postcard(letter, representative, anon)
         p= letter.content
         strong Your Constituent,
         if (anon)
-          form(action="/mayor", method="post")
+          form(action="/letter", method="post")
             .columns
               .column.col-4
                 input(type="text", name="name", placeholder="Your Name")
               .column.col-4
                 input(type="text", name="email", placeholder="Your Email")
+                input(type="hidden", name="representative", value=representative.id)
+                input(type="hidden", name="letter", value=letter.id)
               .column.col-4
                 center
                   button.btn(type="submit") Send

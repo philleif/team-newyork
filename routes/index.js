@@ -105,13 +105,6 @@ router.post("/submit/simple", async (req, res) => {
   res.redirect("/thanks")
 })
 
-/* Email the mayor */
-router.post("/mayor", async (req, res) => {
-  await intercom.createLead(req.body.name, req.body.email)
-
-  res.redirect("/share/" + req.body.letter)
-})
-
 /* User Homepage. */
 router.get("/dashboard", isLoggedIn, async (req, res) => {
   const today = new Date()
@@ -263,50 +256,30 @@ router.get("/event/:id", async (req, res) => {
 })
 
 /* Letter landing page */
-router.get("/letter/:id/:token", async (req, res) => {
+router.get("/letter/:id/", async (req, res) => {
   let letter = await db.Letter.findOne({ _id: req.params.id })
-  let user = await db.User.findOne({ "tokens.letter": req.params.token })
-  let representative = false
-  let district = false
+  let representative = await db.Representative.findOne({ office: letter.office })
 
-  if (user === null) {
-    user = false
-  } else {
-    representative = await userHelper.lookupMember(user)
-    district = await db.District.findOne({
-      $text: { $search: user.neighborhood }
-    })
-
-    if (user.letters.includes(letter.id)) {
-      letter = false
-    }
-  }
+  await intercom.createLead(req.body.name, req.body.email)
 
   res.render("letter", {
     representative: representative,
     letter: letter,
-    user: user,
-    district: district
   })
 })
 
 router.post("/letter", async (req, res) => {
   let letter = await db.Letter.findOne({ _id: req.body.letter })
   let rep = await db.Representative.findOne({ _id: req.body.representative })
-  let user = await db.User.findOne({ "tokens.letter": req.body.token })
 
-  user.letters.push(letter.id)
-
-  await user.save()
-  await intercom.updateLetterCount(user)
-  await email.sendLetter(user, rep, letter)
-  await userHelper.refreshTokens(user)
-
-  if (req.user) {
-    res.redirect("/share/" + user.id + "/" + letter.id)
-  } else {
-    res.redirect("/share/" + letter.id)
+  let user = {
+    name: req.body.name,
+    email: req.body.email
   }
+
+  await email.sendLetter(user, rep, letter)
+
+  res.redirect("/share/" + letter.id)
 })
 
 router.get("/share/:id", async (req, res) => {
