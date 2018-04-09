@@ -8,8 +8,8 @@ const run = async () => {
   agenda.on("ready", async () => {
     await db.AgendaJob.remove({})
 
-    agenda.every("1 hour", "send letter notifications")
-    agenda.every("1 hour", "send meeting notifications")
+    agenda.every("15 minutes", "send letter notifications")
+    agenda.every("15 minutes", "send meeting notifications")
 
     agenda.start()
   })
