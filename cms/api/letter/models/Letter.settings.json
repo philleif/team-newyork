@@ -43,6 +43,10 @@
     "published": {
       "type": "boolean",
       "multiple": false
+    },
+    "image": {
+      "type": "string",
+      "multiple": false
     }
   }
 }
