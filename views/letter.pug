@@ -5,11 +5,14 @@ block meta
   meta(property='og:type', content='website')
   meta(property='og:title', content='Team New York | ' + letter.subject)
   meta(property='og:description', content=letter.content)
-  meta(property='og:image', content='https://newyorkcity.team/images/social-image.png')
+  meta(property='og:image', content=letter.image)
 
 block content
   section
     .container.grid-md
       center
         h2 Get the word out!
-      +postcard(letter, representative, true)
+      if user
+        +postcard(letter, representative, false)
+      else
+        +postcard(letter, representative, true)

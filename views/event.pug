@@ -6,7 +6,7 @@ block meta
   meta(property='og:type', content='website')
   meta(property='og:title', content='Team New York | ' + meeting.name)
   meta(property='og:description', content=meeting.notificationText)
-  meta(property='og:image', content="https://maps.googleapis.com/maps/api/staticmap?center=" + meeting.location + "&zoom=13&size=300x300&maptype=roadmap&markers=color:red%7Clabel:%7C" + meeting.location + "&key=AIzaSyDAU86NGlydy0BQelvDwDSKjGaMz4m-nxc")
+  meta(property='og:image', content=meeting.image)
 
 block content
   section.agenda

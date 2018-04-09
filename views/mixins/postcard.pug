@@ -32,7 +32,8 @@ mixin postcard(letter, representative, anon)
         else
           .signature= user.name
           br
-          form(action="/email", method="post")
+          form(action="/letter", method="post")
             input(type="hidden", name="representative", value=representative.id)
             input(type="hidden", name="letter", value=letter.id)
+            input(type="hidden", name="token", value=user.tokens.letter)
             button.btn(type="submit", value="Send Email") Send Email

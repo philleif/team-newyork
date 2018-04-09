@@ -3,6 +3,12 @@ include mixins/facebook.pug
 include mixins/twitter.pug
 include mixins/about.pug
 
+block meta
+  meta(property='og:type', content='website')
+  meta(property='og:title', content='Team New York | ' + letter.subject)
+  meta(property='og:description', content=letter.notificationText)
+  meta(property='og:image', content=letter.image)
+
 block content
   header
     section.share
@@ -13,6 +19,7 @@ block content
             .columns
               .column.col-6.col-mx-auto
                 img.img-responsive(src=letter.image)
+            br
             h6 Share:
             .columns
               .column.col-2.col-sm-8.col-ml-auto
