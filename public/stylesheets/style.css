@@ -97,12 +97,11 @@ section {
   padding-top: 1em;
   padding-bottom: 1em; }
   section.share {
-    min-height: 80vh; }
+    min-height: 60vh;
+    background: #FDEF43; }
     section.share .wrapper {
       background-color: white;
       padding: 2em; }
-      section.share .wrapper .blue {
-        color: #0084FF; }
   section.agenda {
     background: white; }
   section.hero {

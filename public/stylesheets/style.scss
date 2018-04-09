@@ -136,13 +136,11 @@ section {
   padding-top: 1em;
   padding-bottom:1em;
   &.share {
-    min-height: 80vh;
+    min-height: 60vh;
+    background: $yellow;
     .wrapper {
       background-color: white;
       padding: 2em;
-      .blue {
-        color: $blue;
-      }
     }
   }
   &.agenda {

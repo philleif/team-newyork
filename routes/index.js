@@ -109,11 +109,7 @@ router.post("/submit/simple", async (req, res) => {
 router.post("/mayor", async (req, res) => {
   await intercom.createLead(req.body.name, req.body.email)
 
-  res.redirect("/mayor")
-})
-
-router.get("/mayor", async (req, res) => {
-  res.render("mayor")
+  res.redirect("/share/" + req.body.letter)
 })
 
 /* User Homepage. */
@@ -315,17 +311,10 @@ router.post("/letter", async (req, res) => {
 
 router.get("/share/:id", async (req, res) => {
   let letter = await db.Letter.findOne({ _id: req.params.id })
-  let representative = null
-
-  if (letter.office === "City Council" && req.user) {
-    representative = req.user.representatives.councilMember
-  } else {
-    representative = await db.Representative.findOne({ office: letter.office })
-  }
+  let representative = await db.Representative.findOne({ office: letter.office })
 
   res.render("share", {
     letter: letter,
-    user: req.user,
     representative: representative
   })
 })

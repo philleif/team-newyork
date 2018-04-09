@@ -7,35 +7,23 @@ include mixins/about.pug
 block content
   header
     section.share
-      .container.grid-md
-        center
-          img.logo(src="/images/team-nyc-logo-red.png")
-
-          h2 Get the word out!
+      .container.grid-sm
         .wrapper
-          if user
-            center
-              h3
-                em Hey&nbsp;
-                  span.blue @#{representative.channels[0].id}
-                  | !
-                  br
-                  | #{letter.shareText}
-              .columns
-                .column.col-2.col-sm-8.col-ml-auto
-                  #fb-root
-                  .fb-share-button(data-href='https://newyorkcity.team/letter/' + letter.id, data-layout='button_count', data-size='large', data-mobile-iframe='true')
-                    a.fb-xfbml-parse-ignore(target='_blank', href='https://newyorkcity.team/letter/' + letter.id) Share
+          center
+            h2 Get the word out!
+            img.logo(src=letter.image)
+            h6 Share:
+            .columns
+              .column.col-2.col-sm-8.col-ml-auto
+                #fb-root
+                .fb-share-button(data-href='https://newyorkcity.team/letter/' + letter.id, data-layout='button_count', data-size='large', data-mobile-iframe='true')
+                  a.fb-xfbml-parse-ignore(target='_blank', href='https://newyorkcity.team/letter/' + letter.id) Share
 
-                .column.col-2.col-sm-8.col-mr-auto
-                  a.twitter-share-button(href='https://twitter.com/intent/tweet?text=' + letter.notificationText, data-size='large') Tweet
-          else
-            +postcard(letter, representative, true)
+              .column.col-2.col-sm-8.col-mr-auto
+                a.twitter-share-button(href='https://twitter.com/intent/tweet?text=' + letter.notificationText, data-size='large') Tweet
 
-  if !user
-    +about()
+  +about()
 
 block javascript
-  if user
-    +facebook()
-    +twitter()
+  +facebook()
+  +twitter()
