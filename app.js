@@ -18,6 +18,7 @@ var flash = require("connect-flash")
 
 var index = require("./routes/index")
 var users = require("./routes/users")
+var pino = require('express-pino-logger')()
 
 require("./lib/passport")(passport)
 
@@ -30,7 +31,7 @@ app.use(session({ secret: process.env.SESSION_SECRET })) // session secret
 app.use(passport.initialize())
 app.use(passport.session()) // persistent login sessions
 app.use(flash()) // use connect-flash for flash messages stored in session
-
+app.use(pino)
 // view engine setup
 app.set("views", path.join(__dirname, "views"))
 app.set("view engine", "pug")
