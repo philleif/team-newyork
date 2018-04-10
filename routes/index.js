@@ -11,6 +11,7 @@ const passport = require("passport")
 const express = require("express")
 const intercom = require("../lib/intercom")
 const sm = require("sitemap")
+const pino = require('pino')()
 
 const router = express.Router()
 
