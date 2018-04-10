@@ -58,4 +58,4 @@ typings/
 .env
 .DS_*
 tmp/
-cms/config/*
+cms/config/environments/development/database.json
