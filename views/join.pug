@@ -1,4 +1,5 @@
 extends layout
+include mixins/about.pug
 
 block content
   header
@@ -355,15 +356,8 @@ block content
               li Personalized action alerts
               li One-click letters to your city reps
               li Organizing toolkits
-    section.about
-      .container.grid-md
-        center
-          h2 Why Join?
-        .columns
-          .column.col-6
-            p Team New York makes it easy to engage in local politics by sending action alerts and organizing toolkits on a community board, borough, and city-wide level.
-          .column.col-6
-            p Team New York makes it easy to engage in local politics by sending action alerts and organizing toolkits on a community board, borough, and city-wide level.
+
+    +about()
 
 block javascript
   script.
