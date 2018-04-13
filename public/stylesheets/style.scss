@@ -300,6 +300,11 @@ img {
   filter: drop-shadow(0 0 10px #666);
 }
 
+.form-input:focus {
+  border-color: #ccc;
+  box-shadow: 0 0 0 .1rem rgba(87, 85, 217, 0);
+}
+
 #card-element {
   margin-top: 1em;
   margin-bottom: 1em;
