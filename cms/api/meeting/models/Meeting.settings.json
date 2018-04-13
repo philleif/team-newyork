@@ -44,6 +44,10 @@
     "viaLink": {
       "type": "string",
       "multiple": false
+    },
+    "image": {
+      "type": "string",
+      "multiple": false
     }
   }
 }
