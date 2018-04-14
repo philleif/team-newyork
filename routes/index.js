@@ -198,7 +198,9 @@ router.get("/logout", (req, res) => {
 
 /* Payment. */
 router.get("/donate", isLoggedIn, (req, res) => {
-  res.render("donate")
+  let stripeKey = process.env.STRIPE_API_PUBLIC
+
+  res.render("donate", { stripe: stripeKey})
 })
 
 router.post("/donate", isLoggedIn, async (req, res) => {
