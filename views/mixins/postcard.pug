@@ -21,9 +21,9 @@ mixin postcard(letter, representative, anon)
           form(action="/letter", method="post")
             .columns
               .column.col-4
-                input(type="text", name="name", placeholder="Your Name")
+                input.form-input(type="text", name="name", placeholder="Your Name")
               .column.col-4
-                input(type="text", name="email", placeholder="Your Email")
+                input.form-input(type="text", name="email", placeholder="Your Email")
                 input(type="hidden", name="representative", value=representative.id)
                 input(type="hidden", name="letter", value=letter.id)
               .column.col-4
