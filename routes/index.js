@@ -244,6 +244,10 @@ router.get("/privacy", (req, res) => {
   res.render("pages/privacy")
 })
 
+router.get("/null", (req, res) => {
+  res.render("pages/redirect")
+})
+
 /* Chat bot handler */
 router.post("/dialog", async (req, res) => {
   let response = await dialog.parseAndReply(req.body)

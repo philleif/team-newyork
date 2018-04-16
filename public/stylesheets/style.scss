@@ -305,6 +305,10 @@ img {
   box-shadow: 0 0 0 .1rem rgba(87, 85, 217, 0);
 }
 
+.shopify-buy-frame--toggle.is-active.is-sticky {
+  display: none !important;
+}
+
 #card-element {
   margin-top: 1em;
   margin-bottom: 1em;
