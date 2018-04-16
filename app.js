@@ -12,6 +12,7 @@ var bodyParser = require("body-parser")
 var morgan = require("morgan")
 var cookieParser = require("cookie-parser")
 var bodyParser = require("body-parser")
+var cookieSession = require('cookie-session')
 var session = require("express-session")
 var passport = require("passport")
 var flash = require("connect-flash")
@@ -27,7 +28,14 @@ var app = express()
 // set up our express application
 app.use(morgan("dev")) // log every request to the console
 // required for passport
-app.use(session({ secret: process.env.SESSION_SECRET })) // session secret
+app.use(cookieSession({
+  name: 'session',
+  keys: [process.env.SESSION_SECRET],
+
+  // Cookie Options
+  maxAge: 24 * 60 * 60 * 1000 // 24 hours
+}))
+
 app.use(passport.initialize())
 app.use(passport.session()) // persistent login sessions
 app.use(flash()) // use connect-flash for flash messages stored in session
