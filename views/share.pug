@@ -8,6 +8,7 @@ block meta
   meta(property='og:title', content='Team New York | ' + letter.subject)
   meta(property='og:description', content=letter.notificationText)
   meta(property='og:image', content=letter.image)
+  meta(property='og:url', content=url)
 
 block content
   header
@@ -24,11 +25,11 @@ block content
             .columns
               .column.col-2.col-sm-8.col-ml-auto
                 #fb-root
-                .fb-share-button(data-href='https://newyorkcity.team/letter/' + letter.id, data-layout='button_count', data-size='large', data-mobile-iframe='true')
-                  a.fb-xfbml-parse-ignore(target='_blank', href='https://newyorkcity.team/letter/' + letter.id) Share
+                .fb-share-button(data-href=url, data-layout='button_count', data-size='large', data-mobile-iframe='true')
+                  a.fb-xfbml-parse-ignore(target='_blank', href=url) Share
 
               .column.col-2.col-sm-8.col-mr-auto
-                a.twitter-share-button(href='https://twitter.com/intent/tweet?text=' + letter.notificationText, data-size='large') Tweet
+                a.twitter-share-button(href='https://twitter.com/intent/tweet?text=' + letter.notificationText + "&url=" + url, data-size='large') Tweet
 
   +about()
 

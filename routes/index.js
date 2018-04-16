@@ -12,6 +12,9 @@ const express = require("express")
 const intercom = require("../lib/intercom")
 const sm = require("sitemap")
 const pino = require('pino')()
+const BitlyClient = require("bitly")
+
+const bitly = BitlyClient(process.env.BITLY_API_KEY)
 
 const router = express.Router()
 
@@ -323,9 +326,14 @@ router.get("/share/:id", async (req, res) => {
     office: letter.office
   })
 
+  let url = await bitly.shorten(
+    "https://newyorkcity.team/share/" + letter.id
+  )
+
   res.render("share", {
     letter: letter,
-    representative: representative
+    representative: representative,
+    url: url.data.url
   })
 })
 
