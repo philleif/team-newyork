@@ -19,7 +19,7 @@ mixin events(meetings)
                 p
                 em (via: &nbsp;
                   a(href=meeting.viaLink)= meeting.via
-                    | )
+                  | )
               .column.col-4.col-sm-10.col-mx-auto
                 p.hide-sm
                   img.img-responsive(src="https://maps.googleapis.com/maps/api/staticmap?center=" + meeting.location + "&zoom=13&size=300x300&maptype=roadmap&markers=color:red%7Clabel:%7C" + meeting.location + "&key=AIzaSyDAU86NGlydy0BQelvDwDSKjGaMz4m-nxc")
