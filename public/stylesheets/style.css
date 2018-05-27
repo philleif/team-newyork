@@ -35,8 +35,7 @@ h1 {
   color: #f24236; }
 
 h2 {
-  text-transform: uppercase;
-  text-decoration: underline; }
+  text-transform: uppercase; }
 
 h5, h6 {
   font-family: "GT-Walsheim-Pro-Bold"; }
@@ -105,11 +104,14 @@ section {
   section.agenda {
     background: white; }
   section.hero {
+    padding-bottom: 0;
     background: #FDEF43; }
     section.hero .columns {
       margin-top: 1em; }
     section.hero h6 {
       margin-top: 2em; }
+    section.hero h1 {
+      font-size: 8em; }
     section.hero .intro p {
       font-size: 2em;
       line-height: 1.2em;
@@ -122,7 +124,12 @@ section {
   section.letter {
     padding-top: 2em; }
     section.letter h2 {
-      color: #f24236; }
+      color: #f24236;
+      font-size: 4em;
+      margin-bottom: 0.5em;
+      text-decoration: underline; }
+  section.agenda h2 {
+    text-decoration: underline; }
   section.email {
     color: #ffffff;
     background: #000000;

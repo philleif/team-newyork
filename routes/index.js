@@ -45,8 +45,8 @@ router.get("/", async (req, res, next) => {
   const today = new Date()
 
   let meetings = await db.Meeting.find({
-    published: true,
-    date: { $gt: today }
+    published: true
+//    date: { $gt: today }
   })
     .limit(1)
     .sort({ date: 1 })
@@ -91,6 +91,10 @@ router.post("/submit", isLoggedIn, async (req, res) => {
 
 router.get("/thanks", async (req, res) => {
   res.render("thanks")
+})
+
+router.get("/fullpage", async (req, res) => {
+  res.render("fullpage")
 })
 
 router.get("/submit/:token", async (req, res) => {

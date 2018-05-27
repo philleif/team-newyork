@@ -54,7 +54,6 @@ h1 {
 
 h2 {
   text-transform: uppercase;
-  text-decoration: underline;
 }
 
 h5, h6 {
@@ -147,12 +146,16 @@ section {
     background: white;
   }
   &.hero {
+    padding-bottom: 0;
     background: $yellow;
     .columns {
       margin-top: 1em;
     }
     h6 {
       margin-top: 2em;
+    }
+    h1 {
+      font-size: 8em;
     }
     .intro {
       p {
@@ -172,6 +175,14 @@ section {
     padding-top: 2em;
     h2 {
       color: $red;
+      font-size: 4em;
+      margin-bottom: 0.5em;
+      text-decoration: underline;
+    }
+  }
+  &.agenda {
+    h2 {
+      text-decoration: underline;
     }
   }
   &.email {
